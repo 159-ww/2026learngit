@@ -1,0 +1,2716 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_786c81eb3039b09600f837760ec8f9d9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed;top:12px;right:12px;width:130px;background:#fff;
+            border:1px solid #999;border-radius:4px;z-index:9999;
+            font-size:13px;padding:8px 10px;box-shadow:2px 2px 6px rgba(0,0,0,.15)">
+  <div style="font-weight:bold;margin-bottom:4px">行政区</div>
+  <div><span style="display:inline-block;width:12px;height:12px;background:#e41a1c;border-radius:50%;margin-right:6px"></span>梁溪区</div><div><span style="display:inline-block;width:12px;height:12px;background:#377eb8;border-radius:50%;margin-right:6px"></span>锡山区</div><div><span style="display:inline-block;width:12px;height:12px;background:#4daf4a;border-radius:50%;margin-right:6px"></span>惠山区</div><div><span style="display:inline-block;width:12px;height:12px;background:#984ea3;border-radius:50%;margin-right:6px"></span>滨湖区</div><div><span style="display:inline-block;width:12px;height:12px;background:#ff7f00;border-radius:50%;margin-right:6px"></span>新吴区</div><div><span style="display:inline-block;width:12px;height:12px;background:#a65628;border-radius:50%;margin-right:6px"></span>江阴市</div><div><span style="display:inline-block;width:12px;height:12px;background:#f781bf;border-radius:50%;margin-right:6px"></span>宜兴市</div>
+</div>
+    
+            <div class="folium-map" id="map_786c81eb3039b09600f837760ec8f9d9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_786c81eb3039b09600f837760ec8f9d9 = L.map(
+                "map_786c81eb3039b09600f837760ec8f9d9",
+                {
+                    center: [31.555126630007784, 120.20578221798459],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_786c81eb3039b09600f837760ec8f9d9);
+
+            
+
+        
+    
+            var tile_layer_769454be4ccfecb9430c092d4489cfc9 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_769454be4ccfecb9430c092d4489cfc9.addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+            var circle_marker_31501a2d6acc04116d0399c4dcf8940b = L.circleMarker(
+                [31.55174106410206, 120.30147834181646],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_2fc754e273de12d753bde26f1bb09790 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_63180b14dbfd9e573b3923dea786b08c = $(`<div id="html_63180b14dbfd9e573b3923dea786b08c" style="width: 100.0%; height: 100.0%;"><b>无锡博物院</b><br>地址：钟书路100号<br>行政区：梁溪区<br>电话：0510-85727500;0510-85727600;12301<br>开放时间：周一全天关闭（法定节假日除外），周二至周日:9:00-17:00<br><span style='color:#888'>WGS84: 120.301478, 31.551741</span></div>`)[0];
+                popup_2fc754e273de12d753bde26f1bb09790.setContent(html_63180b14dbfd9e573b3923dea786b08c);
+            
+        
+
+        circle_marker_31501a2d6acc04116d0399c4dcf8940b.bindPopup(popup_2fc754e273de12d753bde26f1bb09790)
+        ;
+
+        
+    
+    
+            circle_marker_31501a2d6acc04116d0399c4dcf8940b.bindTooltip(
+                `<div>
+                     无锡博物院
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f6bf22c20e4e83acd85d65e2f0846270 = L.circleMarker(
+                [31.571668677278144, 120.28895034162504],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_adfd3a3d899b93108d98c34d2822429a = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_58ed7645570d2b989d04b8cd16a117c7 = $(`<div id="html_58ed7645570d2b989d04b8cd16a117c7" style="width: 100.0%; height: 100.0%;"><b>无锡中国民族工商业博物馆</b><br>地址：振新路415号<br>行政区：梁溪区<br>电话：0510-82728663<br>开放时间：周二至周日 09:00-16:30；节假日营业时间以官方通知为准<br><span style='color:#888'>WGS84: 120.288950, 31.571669</span></div>`)[0];
+                popup_adfd3a3d899b93108d98c34d2822429a.setContent(html_58ed7645570d2b989d04b8cd16a117c7);
+            
+        
+
+        circle_marker_f6bf22c20e4e83acd85d65e2f0846270.bindPopup(popup_adfd3a3d899b93108d98c34d2822429a)
+        ;
+
+        
+    
+    
+            circle_marker_f6bf22c20e4e83acd85d65e2f0846270.bindTooltip(
+                `<div>
+                     无锡中国民族工商业博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f3d09b15dba436ab26f7fef8f8b67d1d = L.circleMarker(
+                [31.584330267018483, 120.2705720332616],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_07e6c2337f94b5a0c4309e9f4f598b06 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_803db311c98103bbb6b3701142030c0d = $(`<div id="html_803db311c98103bbb6b3701142030c0d" style="width: 100.0%; height: 100.0%;"><b>中国泥人博物馆</b><br>地址：梁溪区宝善街18号(惠山古镇地铁站6号口步行400米)<br>行政区：梁溪区<br>电话：nan<br>开放时间：08:30-17:00<br><span style='color:#888'>WGS84: 120.270572, 31.584330</span></div>`)[0];
+                popup_07e6c2337f94b5a0c4309e9f4f598b06.setContent(html_803db311c98103bbb6b3701142030c0d);
+            
+        
+
+        circle_marker_f3d09b15dba436ab26f7fef8f8b67d1d.bindPopup(popup_07e6c2337f94b5a0c4309e9f4f598b06)
+        ;
+
+        
+    
+    
+            circle_marker_f3d09b15dba436ab26f7fef8f8b67d1d.bindTooltip(
+                `<div>
+                     中国泥人博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_727ae1504ac2fa79cd4fd1cdbafcb86e = L.circleMarker(
+                [31.580150017854592, 120.29170672522747],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_034c36a3aed0e985cf746846dcbf4cb7 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_f17ff3f74d1655e066889a067a6172f7 = $(`<div id="html_f17ff3f74d1655e066889a067a6172f7" style="width: 100.0%; height: 100.0%;"><b>锡剧艺术中心</b><br>地址：大成巷步行街长大弄9号<br>行政区：梁溪区<br>电话：nan<br>开放时间：周二至周日 09:30-16:00；具体营业状态以当天开放情况为准<br><span style='color:#888'>WGS84: 120.291707, 31.580150</span></div>`)[0];
+                popup_034c36a3aed0e985cf746846dcbf4cb7.setContent(html_f17ff3f74d1655e066889a067a6172f7);
+            
+        
+
+        circle_marker_727ae1504ac2fa79cd4fd1cdbafcb86e.bindPopup(popup_034c36a3aed0e985cf746846dcbf4cb7)
+        ;
+
+        
+    
+    
+            circle_marker_727ae1504ac2fa79cd4fd1cdbafcb86e.bindTooltip(
+                `<div>
+                     锡剧艺术中心
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d42d67826356f2461cef540287aad76 = L.circleMarker(
+                [31.58457277616885, 120.26771785785645],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_911da1a9eedbfebe0081c43626fc7d84 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_809966fcc12de94f3ddfd1e6714ae715 = $(`<div id="html_809966fcc12de94f3ddfd1e6714ae715" style="width: 100.0%; height: 100.0%;"><b>二泉映月博物馆</b><br>地址：梁溪区惠山映月里内(多乐之日旁)<br>行政区：梁溪区<br>电话：nan<br>开放时间：10:00-16:00<br><span style='color:#888'>WGS84: 120.267718, 31.584573</span></div>`)[0];
+                popup_911da1a9eedbfebe0081c43626fc7d84.setContent(html_809966fcc12de94f3ddfd1e6714ae715);
+            
+        
+
+        circle_marker_4d42d67826356f2461cef540287aad76.bindPopup(popup_911da1a9eedbfebe0081c43626fc7d84)
+        ;
+
+        
+    
+    
+            circle_marker_4d42d67826356f2461cef540287aad76.bindTooltip(
+                `<div>
+                     二泉映月博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b93237390af05e16f38a29f0ef9aa4a = L.circleMarker(
+                [31.58757468241948, 120.28017556880063],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_5b16d2b5d3dd24e8975ca3dca223b4c5 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_8e8b6a9eb8ac20e5f3bee39c884575dc = $(`<div id="html_8e8b6a9eb8ac20e5f3bee39c884575dc" style="width: 100.0%; height: 100.0%;"><b>何振梁与奥林匹克陈列馆</b><br>地址：运河公园A区20号<br>行政区：梁溪区<br>电话：0510-82801911;0510-82802811<br>开放时间：周二至周日 09:00-16:00；节假日营业时间以官方通知为准<br><span style='color:#888'>WGS84: 120.280176, 31.587575</span></div>`)[0];
+                popup_5b16d2b5d3dd24e8975ca3dca223b4c5.setContent(html_8e8b6a9eb8ac20e5f3bee39c884575dc);
+            
+        
+
+        circle_marker_0b93237390af05e16f38a29f0ef9aa4a.bindPopup(popup_5b16d2b5d3dd24e8975ca3dca223b4c5)
+        ;
+
+        
+    
+    
+            circle_marker_0b93237390af05e16f38a29f0ef9aa4a.bindTooltip(
+                `<div>
+                     何振梁与奥林匹克陈列馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c3cf7334536cc0cd64a68bbc04a823fb = L.circleMarker(
+                [31.578796767355207, 120.29632154276122],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_e345b0a5eb0e5a6d87e4328714137283 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_27b3148a2ce6d39c30ef7c6c7c191d0e = $(`<div id="html_27b3148a2ce6d39c30ef7c6c7c191d0e" style="width: 100.0%; height: 100.0%;"><b>巧克力博物馆</b><br>地址：崇安寺景区皇亭广场1128号<br>行政区：梁溪区<br>电话：4007161577<br>开放时间：09:00-21:00<br><span style='color:#888'>WGS84: 120.296322, 31.578797</span></div>`)[0];
+                popup_e345b0a5eb0e5a6d87e4328714137283.setContent(html_27b3148a2ce6d39c30ef7c6c7c191d0e);
+            
+        
+
+        circle_marker_c3cf7334536cc0cd64a68bbc04a823fb.bindPopup(popup_e345b0a5eb0e5a6d87e4328714137283)
+        ;
+
+        
+    
+    
+            circle_marker_c3cf7334536cc0cd64a68bbc04a823fb.bindTooltip(
+                `<div>
+                     巧克力博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_650f02548ac17dcdf556b0f49c1a56a6 = L.circleMarker(
+                [31.572749075601944, 120.29450322007783],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_9b939fd9c71ab811e3573bae32a8e856 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_70fef6422fae8e89aea80ae9560c5c0a = $(`<div id="html_70fef6422fae8e89aea80ae9560c5c0a" style="width: 100.0%; height: 100.0%;"><b>无锡碑刻陈列馆</b><br>地址：学前街睦亲坊巷3号(近健康里)<br>行政区：梁溪区<br>电话：0510-85134933;12301<br>开放时间：周二至周日 08:00-16:00；节假日营业时间以官方通知为准<br><span style='color:#888'>WGS84: 120.294503, 31.572749</span></div>`)[0];
+                popup_9b939fd9c71ab811e3573bae32a8e856.setContent(html_70fef6422fae8e89aea80ae9560c5c0a);
+            
+        
+
+        circle_marker_650f02548ac17dcdf556b0f49c1a56a6.bindPopup(popup_9b939fd9c71ab811e3573bae32a8e856)
+        ;
+
+        
+    
+    
+            circle_marker_650f02548ac17dcdf556b0f49c1a56a6.bindTooltip(
+                `<div>
+                     无锡碑刻陈列馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b72df0f0bde0db3d1c2cac45401bd1c = L.circleMarker(
+                [31.55100503752428, 120.30095309830008],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_2cd2e1dbec5b6859d8130a7baf97ca51 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_39d69cd5bf18e671e886fde2d90c69a5 = $(`<div id="html_39d69cd5bf18e671e886fde2d90c69a5" style="width: 100.0%; height: 100.0%;"><b>元代钱裕墓出土文物展</b><br>地址：钟书路100号<br>行政区：梁溪区<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.300953, 31.551005</span></div>`)[0];
+                popup_2cd2e1dbec5b6859d8130a7baf97ca51.setContent(html_39d69cd5bf18e671e886fde2d90c69a5);
+            
+        
+
+        circle_marker_0b72df0f0bde0db3d1c2cac45401bd1c.bindPopup(popup_2cd2e1dbec5b6859d8130a7baf97ca51)
+        ;
+
+        
+    
+    
+            circle_marker_0b72df0f0bde0db3d1c2cac45401bd1c.bindTooltip(
+                `<div>
+                     元代钱裕墓出土文物展
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48f61a8cdab89e93bb0033177b555d68 = L.circleMarker(
+                [31.556944993737055, 120.31340186274893],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_37c1923207b82c91f400c402c657c154 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_3d88cb50977262b7fbb0f58f214f4750 = $(`<div id="html_3d88cb50977262b7fbb0f58f214f4750" style="width: 100.0%; height: 100.0%;"><b>茶器博物馆</b><br>地址：南长街与界泾桥路交叉口东南80米<br>行政区：梁溪区<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.313402, 31.556945</span></div>`)[0];
+                popup_37c1923207b82c91f400c402c657c154.setContent(html_3d88cb50977262b7fbb0f58f214f4750);
+            
+        
+
+        circle_marker_48f61a8cdab89e93bb0033177b555d68.bindPopup(popup_37c1923207b82c91f400c402c657c154)
+        ;
+
+        
+    
+    
+            circle_marker_48f61a8cdab89e93bb0033177b555d68.bindTooltip(
+                `<div>
+                     茶器博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ec33e087827a8c6f0ca46f27a41b755 = L.circleMarker(
+                [31.57123682700807, 120.28818314170043],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_8646a862f574758ddbb24f188ab8899c = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_518ea413f5262cfd6843e36415827c15 = $(`<div id="html_518ea413f5262cfd6843e36415827c15" style="width: 100.0%; height: 100.0%;"><b>同乐拾珍博物馆</b><br>地址：学前西路与振新路交叉口西60米<br>行政区：梁溪区<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.288183, 31.571237</span></div>`)[0];
+                popup_8646a862f574758ddbb24f188ab8899c.setContent(html_518ea413f5262cfd6843e36415827c15);
+            
+        
+
+        circle_marker_8ec33e087827a8c6f0ca46f27a41b755.bindPopup(popup_8646a862f574758ddbb24f188ab8899c)
+        ;
+
+        
+    
+    
+            circle_marker_8ec33e087827a8c6f0ca46f27a41b755.bindTooltip(
+                `<div>
+                     同乐拾珍博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c1ae70ff59a7f2a87b0e0e7dd563a91a = L.circleMarker(
+                [31.571725654064085, 120.28828000420302],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_96fa7fb03a7e13f11af4bdce975874b5 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d7d0d767db4aeee2b0d8e4b373f88a8f = $(`<div id="html_d7d0d767db4aeee2b0d8e4b373f88a8f" style="width: 100.0%; height: 100.0%;"><b>无锡中国民族工商业博物馆老办公楼展区</b><br>地址：梁溪区振新路415号(近西水墩)无锡中国民族工商业博物馆<br>行政区：梁溪区<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.288280, 31.571726</span></div>`)[0];
+                popup_96fa7fb03a7e13f11af4bdce975874b5.setContent(html_d7d0d767db4aeee2b0d8e4b373f88a8f);
+            
+        
+
+        circle_marker_c1ae70ff59a7f2a87b0e0e7dd563a91a.bindPopup(popup_96fa7fb03a7e13f11af4bdce975874b5)
+        ;
+
+        
+    
+    
+            circle_marker_c1ae70ff59a7f2a87b0e0e7dd563a91a.bindTooltip(
+                `<div>
+                     无锡中国民族工商业博物馆老办公楼展区
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5837bfddcf7fe3ff4a3a64c57d13ef21 = L.circleMarker(
+                [31.582901001012967, 120.2719746204421],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_a97dd17ee6206edb92412f31a1ccdb0c = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_15436c677378fb09a41d20119605f995 = $(`<div id="html_15436c677378fb09a41d20119605f995" style="width: 100.0%; height: 100.0%;"><b>中国髹金漆博物馆</b><br>地址：宝善街18号惠山古镇景区(东北角)<br>行政区：梁溪区<br>电话：nan<br>开放时间：08:30-17:00<br><span style='color:#888'>WGS84: 120.271975, 31.582901</span></div>`)[0];
+                popup_a97dd17ee6206edb92412f31a1ccdb0c.setContent(html_15436c677378fb09a41d20119605f995);
+            
+        
+
+        circle_marker_5837bfddcf7fe3ff4a3a64c57d13ef21.bindPopup(popup_a97dd17ee6206edb92412f31a1ccdb0c)
+        ;
+
+        
+    
+    
+            circle_marker_5837bfddcf7fe3ff4a3a64c57d13ef21.bindTooltip(
+                `<div>
+                     中国髹金漆博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd3984bbca5b3a7d284bd3af0e4e7d43 = L.circleMarker(
+                [31.567466023623822, 120.30476651909318],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_9d05ed482d60c9c88c4d76b6b83a2176 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d1f7db3f31beff9ee0981c6882d18171 = $(`<div id="html_d1f7db3f31beff9ee0981c6882d18171" style="width: 100.0%; height: 100.0%;"><b>无锡得壶堂民间艺术品博物馆</b><br>地址：南禅寺商城110-26<br>行政区：梁溪区<br>电话：0510-82822222<br>开放时间：09:30-16:30<br><span style='color:#888'>WGS84: 120.304767, 31.567466</span></div>`)[0];
+                popup_9d05ed482d60c9c88c4d76b6b83a2176.setContent(html_d1f7db3f31beff9ee0981c6882d18171);
+            
+        
+
+        circle_marker_bd3984bbca5b3a7d284bd3af0e4e7d43.bindPopup(popup_9d05ed482d60c9c88c4d76b6b83a2176)
+        ;
+
+        
+    
+    
+            circle_marker_bd3984bbca5b3a7d284bd3af0e4e7d43.bindTooltip(
+                `<div>
+                     无锡得壶堂民间艺术品博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8d4dd0fa5ea82e72de83b6cf2e1c1de1 = L.circleMarker(
+                [31.557495583729104, 120.31252913008119],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_7bf8cd4767eff8147e6e77816a3758ec = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_7cf69a7dcba40129426cfdb846e43bd7 = $(`<div id="html_7cf69a7dcba40129426cfdb846e43bd7" style="width: 100.0%; height: 100.0%;"><b>运河文化艺术馆</b><br>地址：南长街478号<br>行政区：梁溪区<br>电话：18964559599<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.312529, 31.557496</span></div>`)[0];
+                popup_7bf8cd4767eff8147e6e77816a3758ec.setContent(html_7cf69a7dcba40129426cfdb846e43bd7);
+            
+        
+
+        circle_marker_8d4dd0fa5ea82e72de83b6cf2e1c1de1.bindPopup(popup_7bf8cd4767eff8147e6e77816a3758ec)
+        ;
+
+        
+    
+    
+            circle_marker_8d4dd0fa5ea82e72de83b6cf2e1c1de1.bindTooltip(
+                `<div>
+                     运河文化艺术馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_94709bbe7fc1d48b6db4f6292abc2a3e = L.circleMarker(
+                [31.556811421486728, 120.31477379116674],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_96bf75be09e97d71ad7f04fdaa5a2799 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_c6fd404f6a902fa3edf429c7f652ebcd = $(`<div id="html_c6fd404f6a902fa3edf429c7f652ebcd" style="width: 100.0%; height: 100.0%;"><b>无锡窑群遗址博物馆</b><br>地址：梁溪区大窑路27号<br>行政区：梁溪区<br>电话：nan<br>开放时间：09:00-21:00<br><span style='color:#888'>WGS84: 120.314774, 31.556811</span></div>`)[0];
+                popup_96bf75be09e97d71ad7f04fdaa5a2799.setContent(html_c6fd404f6a902fa3edf429c7f652ebcd);
+            
+        
+
+        circle_marker_94709bbe7fc1d48b6db4f6292abc2a3e.bindPopup(popup_96bf75be09e97d71ad7f04fdaa5a2799)
+        ;
+
+        
+    
+    
+            circle_marker_94709bbe7fc1d48b6db4f6292abc2a3e.bindTooltip(
+                `<div>
+                     无锡窑群遗址博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c8a1cbd5c1612ee51607457f7aa6f2ff = L.circleMarker(
+                [31.559360504130716, 120.30979902420671],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_7636f7720b853c8aa8380d9601eb33ea = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_35ab5b2754b8c68d745b9a7eb07b8754 = $(`<div id="html_35ab5b2754b8c68d745b9a7eb07b8754" style="width: 100.0%; height: 100.0%;"><b>中国丝业博物馆(装修中)</b><br>地址：梁溪区南长街364号<br>行政区：梁溪区<br>电话：nan<br>开放时间：09:00-21:00<br><span style='color:#888'>WGS84: 120.309799, 31.559361</span></div>`)[0];
+                popup_7636f7720b853c8aa8380d9601eb33ea.setContent(html_35ab5b2754b8c68d745b9a7eb07b8754);
+            
+        
+
+        circle_marker_c8a1cbd5c1612ee51607457f7aa6f2ff.bindPopup(popup_7636f7720b853c8aa8380d9601eb33ea)
+        ;
+
+        
+    
+    
+            circle_marker_c8a1cbd5c1612ee51607457f7aa6f2ff.bindTooltip(
+                `<div>
+                     中国丝业博物馆(装修中)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_90f5a11bfa17369a9c4ca581ef847aa6 = L.circleMarker(
+                [31.578102786711856, 120.3033854987697],
+                {"bubblingMouseEvents": true, "color": "#e41a1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_f834aafa4f7f27d7d37d11d22d92e973 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_7498619442996cb1358bb52edc6e4628 = $(`<div id="html_7498619442996cb1358bb52edc6e4628" style="width: 100.0%; height: 100.0%;"><b>王选事迹陈列馆</b><br>地址：梁溪区解放东路867-1号(近东林书院)<br>行政区：梁溪区<br>电话：0510-82723601<br>开放时间：10:00-17:00<br><span style='color:#888'>WGS84: 120.303385, 31.578103</span></div>`)[0];
+                popup_f834aafa4f7f27d7d37d11d22d92e973.setContent(html_7498619442996cb1358bb52edc6e4628);
+            
+        
+
+        circle_marker_90f5a11bfa17369a9c4ca581ef847aa6.bindPopup(popup_f834aafa4f7f27d7d37d11d22d92e973)
+        ;
+
+        
+    
+    
+            circle_marker_90f5a11bfa17369a9c4ca581ef847aa6.bindTooltip(
+                `<div>
+                     王选事迹陈列馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0ab5711e468846c0aec6bfccaf402b0e = L.circleMarker(
+                [31.61387162168574, 120.36123717563949],
+                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_efa2dc60159f360cf77deddd983bf57d = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_df55897abdc40b0a1a92d4ba4c83b019 = $(`<div id="html_df55897abdc40b0a1a92d4ba4c83b019" style="width: 100.0%; height: 100.0%;"><b>中国乡镇企业博物馆</b><br>地址：东亭中路111号<br>行政区：锡山区<br>电话：0510-88264001<br>开放时间：09:00-16:30<br><span style='color:#888'>WGS84: 120.361237, 31.613872</span></div>`)[0];
+                popup_efa2dc60159f360cf77deddd983bf57d.setContent(html_df55897abdc40b0a1a92d4ba4c83b019);
+            
+        
+
+        circle_marker_0ab5711e468846c0aec6bfccaf402b0e.bindPopup(popup_efa2dc60159f360cf77deddd983bf57d)
+        ;
+
+        
+    
+    
+            circle_marker_0ab5711e468846c0aec6bfccaf402b0e.bindTooltip(
+                `<div>
+                     中国乡镇企业博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9fd615f309dfe0affaef33366988a6f0 = L.circleMarker(
+                [31.61516754955867, 120.36127602414025],
+                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_8bccf968b7f829fe2a9a4eb9914f5b7f = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_ddef5de0075d015ccef3836c4c2852cf = $(`<div id="html_ddef5de0075d015ccef3836c4c2852cf" style="width: 100.0%; height: 100.0%;"><b>春雷造船厂船坞</b><br>地址：锡虞路与春笋北路交叉口西南140米<br>行政区：锡山区<br>电话：nan<br>开放时间：09:00-16:30<br><span style='color:#888'>WGS84: 120.361276, 31.615168</span></div>`)[0];
+                popup_8bccf968b7f829fe2a9a4eb9914f5b7f.setContent(html_ddef5de0075d015ccef3836c4c2852cf);
+            
+        
+
+        circle_marker_9fd615f309dfe0affaef33366988a6f0.bindPopup(popup_8bccf968b7f829fe2a9a4eb9914f5b7f)
+        ;
+
+        
+    
+    
+            circle_marker_9fd615f309dfe0affaef33366988a6f0.bindTooltip(
+                `<div>
+                     春雷造船厂船坞
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0bd362265921ed4622072d28a39c2bce = L.circleMarker(
+                [31.525127878149664, 120.54900364495171],
+                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_67ff638fc56c606d05259df28b7604f6 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d6ba07865394b495fb709154467e2690 = $(`<div id="html_d6ba07865394b495fb709154467e2690" style="width: 100.0%; height: 100.0%;"><b>无锡慈善博物馆</b><br>地址：学海路18号<br>行政区：锡山区<br>电话：nan<br>开放时间：周二至周日 09:00-17:00,节假日以官方通知为准<br><span style='color:#888'>WGS84: 120.549004, 31.525128</span></div>`)[0];
+                popup_67ff638fc56c606d05259df28b7604f6.setContent(html_d6ba07865394b495fb709154467e2690);
+            
+        
+
+        circle_marker_0bd362265921ed4622072d28a39c2bce.bindPopup(popup_67ff638fc56c606d05259df28b7604f6)
+        ;
+
+        
+    
+    
+            circle_marker_0bd362265921ed4622072d28a39c2bce.bindTooltip(
+                `<div>
+                     无锡慈善博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d5b6998ee27a7d265a6cb398d15f15b3 = L.circleMarker(
+                [31.526141078297734, 120.55187070823716],
+                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_50f3bd146181d533f98b5879626a5596 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_923a7678c184de9da2ea880dc3ae61e4 = $(`<div id="html_923a7678c184de9da2ea880dc3ae61e4" style="width: 100.0%; height: 100.0%;"><b>荡口庭院电影博物馆</b><br>地址：仓河北街18号<br>行政区：锡山区<br>电话：nan<br>开放时间：09:30-17:00<br><span style='color:#888'>WGS84: 120.551871, 31.526141</span></div>`)[0];
+                popup_50f3bd146181d533f98b5879626a5596.setContent(html_923a7678c184de9da2ea880dc3ae61e4);
+            
+        
+
+        circle_marker_d5b6998ee27a7d265a6cb398d15f15b3.bindPopup(popup_50f3bd146181d533f98b5879626a5596)
+        ;
+
+        
+    
+    
+            circle_marker_d5b6998ee27a7d265a6cb398d15f15b3.bindTooltip(
+                `<div>
+                     荡口庭院电影博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0ccdf686c48bd8526c2cf76944e97bdf = L.circleMarker(
+                [31.632667176552104, 120.25292155033452],
+                {"bubblingMouseEvents": true, "color": "#4daf4a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_bd777109923da632bac907028c09afac = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_4042dd8c0b9a154a33183481f7fec946 = $(`<div id="html_4042dd8c0b9a154a33183481f7fec946" style="width: 100.0%; height: 100.0%;"><b>梅泾乡村博物馆</b><br>地址：广石路30号<br>行政区：惠山区<br>电话：—<br>开放时间：09:00-16:00<br><span style='color:#888'>WGS84: 120.252922, 31.632667</span></div>`)[0];
+                popup_bd777109923da632bac907028c09afac.setContent(html_4042dd8c0b9a154a33183481f7fec946);
+            
+        
+
+        circle_marker_0ccdf686c48bd8526c2cf76944e97bdf.bindPopup(popup_bd777109923da632bac907028c09afac)
+        ;
+
+        
+    
+    
+            circle_marker_0ccdf686c48bd8526c2cf76944e97bdf.bindTooltip(
+                `<div>
+                     梅泾乡村博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_580ac3dce5b0914e459842d32659645e = L.circleMarker(
+                [31.687778984920566, 120.27284519845102],
+                {"bubblingMouseEvents": true, "color": "#4daf4a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_0bc984545f806021c6f2f0de2d29dad9 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_da1f949ae694b8e914e73b8e5144f39c = $(`<div id="html_da1f949ae694b8e914e73b8e5144f39c" style="width: 100.0%; height: 100.0%;"><b>广誉远中医药文化体验馆</b><br>地址：堰桥街道堰新西路111号D10<br>行政区：惠山区<br>电话：—<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.272845, 31.687779</span></div>`)[0];
+                popup_0bc984545f806021c6f2f0de2d29dad9.setContent(html_da1f949ae694b8e914e73b8e5144f39c);
+            
+        
+
+        circle_marker_580ac3dce5b0914e459842d32659645e.bindPopup(popup_0bc984545f806021c6f2f0de2d29dad9)
+        ;
+
+        
+    
+    
+            circle_marker_580ac3dce5b0914e459842d32659645e.bindTooltip(
+                `<div>
+                     广誉远中医药文化体验馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bbe589709373e69729415965c6a7405f = L.circleMarker(
+                [31.67986693161667, 120.18288679009652],
+                {"bubblingMouseEvents": true, "color": "#4daf4a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_30e154163c10ae9663159d0c6314747c = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d15a0ab5135bb8b23892874dd73cd8b4 = $(`<div id="html_d15a0ab5135bb8b23892874dd73cd8b4" style="width: 100.0%; height: 100.0%;"><b>惠山文化博物馆</b><br>地址：中惠大道与唐洛路交叉口东360米<br>行政区：惠山区<br>电话：—<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 120.182887, 31.679867</span></div>`)[0];
+                popup_30e154163c10ae9663159d0c6314747c.setContent(html_d15a0ab5135bb8b23892874dd73cd8b4);
+            
+        
+
+        circle_marker_bbe589709373e69729415965c6a7405f.bindPopup(popup_30e154163c10ae9663159d0c6314747c)
+        ;
+
+        
+    
+    
+            circle_marker_bbe589709373e69729415965c6a7405f.bindTooltip(
+                `<div>
+                     惠山文化博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9d535607fdbd48751934f5d83974e4f8 = L.circleMarker(
+                [31.527611687526885, 120.28173956800501],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_df576af11f41b002b89480c0c6a3a142 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_65614a9c9af5894b2e2568011e8cf760 = $(`<div id="html_65614a9c9af5894b2e2568011e8cf760" style="width: 100.0%; height: 100.0%;"><b>信利博物馆</b><br>地址：太湖街道太湖街道金城西路山水湖滨二期398号<br>行政区：滨湖区<br>电话：0510-85066968<br>开放时间：09:00-16:00<br><span style='color:#888'>WGS84: 120.281740, 31.527612</span></div>`)[0];
+                popup_df576af11f41b002b89480c0c6a3a142.setContent(html_65614a9c9af5894b2e2568011e8cf760);
+            
+        
+
+        circle_marker_9d535607fdbd48751934f5d83974e4f8.bindPopup(popup_df576af11f41b002b89480c0c6a3a142)
+        ;
+
+        
+    
+    
+            circle_marker_9d535607fdbd48751934f5d83974e4f8.bindTooltip(
+                `<div>
+                     信利博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6a0769137db718ea9b1f36f922300dd = L.circleMarker(
+                [31.471015611590946, 120.26029721459498],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_1eba8c3d3c7f054a9b9234f174821d89 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_626ec75ad4f3fb4fcdb58c91415bc796 = $(`<div id="html_626ec75ad4f3fb4fcdb58c91415bc796" style="width: 100.0%; height: 100.0%;"><b>广誉远博物馆</b><br>地址：状元道与楝城路交叉口东160米<br>行政区：滨湖区<br>电话：13706175850;18262270779<br>开放时间：09:00-21:00<br><span style='color:#888'>WGS84: 120.260297, 31.471016</span></div>`)[0];
+                popup_1eba8c3d3c7f054a9b9234f174821d89.setContent(html_626ec75ad4f3fb4fcdb58c91415bc796);
+            
+        
+
+        circle_marker_e6a0769137db718ea9b1f36f922300dd.bindPopup(popup_1eba8c3d3c7f054a9b9234f174821d89)
+        ;
+
+        
+    
+    
+            circle_marker_e6a0769137db718ea9b1f36f922300dd.bindTooltip(
+                `<div>
+                     广誉远博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5b279afd9ea66e294738ec6fb2c82cc3 = L.circleMarker(
+                [31.502000527387146, 120.24199967205813],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_028b101e37534f2028c708ada3f19991 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_2f1c4ab3345e2e91bdf03adcb28724aa = $(`<div id="html_2f1c4ab3345e2e91bdf03adcb28724aa" style="width: 100.0%; height: 100.0%;"><b>无锡帅元紫砂博物馆</b><br>地址：山水西路38号<br>行政区：滨湖区<br>电话：0510-85558880<br>开放时间：09:00-16:00<br><span style='color:#888'>WGS84: 120.242000, 31.502001</span></div>`)[0];
+                popup_028b101e37534f2028c708ada3f19991.setContent(html_2f1c4ab3345e2e91bdf03adcb28724aa);
+            
+        
+
+        circle_marker_5b279afd9ea66e294738ec6fb2c82cc3.bindPopup(popup_028b101e37534f2028c708ada3f19991)
+        ;
+
+        
+    
+    
+            circle_marker_5b279afd9ea66e294738ec6fb2c82cc3.bindTooltip(
+                `<div>
+                     无锡帅元紫砂博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f9a2e677133e1e6928194b0f4ce6717c = L.circleMarker(
+                [31.501734682207527, 120.24326179277276],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_1b161e5a83ff9e28a697842cbedcbb8b = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_5ca0ef5df9b8dfebef98b3eed8efd84d = $(`<div id="html_5ca0ef5df9b8dfebef98b3eed8efd84d" style="width: 100.0%; height: 100.0%;"><b>紫砂博物馆</b><br>地址：山水西路9号<br>行政区：滨湖区<br>电话：nan<br>开放时间：09:00-18:00<br><span style='color:#888'>WGS84: 120.243262, 31.501735</span></div>`)[0];
+                popup_1b161e5a83ff9e28a697842cbedcbb8b.setContent(html_5ca0ef5df9b8dfebef98b3eed8efd84d);
+            
+        
+
+        circle_marker_f9a2e677133e1e6928194b0f4ce6717c.bindPopup(popup_1b161e5a83ff9e28a697842cbedcbb8b)
+        ;
+
+        
+    
+    
+            circle_marker_f9a2e677133e1e6928194b0f4ce6717c.bindTooltip(
+                `<div>
+                     紫砂博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b5770ebe550fde10c8cf80f9b6524e2b = L.circleMarker(
+                [31.51377405380748, 120.13023963191908],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_8c593e267b6d702aad272fbcae99dec5 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_3219710f50b5d0592f1c05c5511979ba = $(`<div id="html_3219710f50b5d0592f1c05c5511979ba" style="width: 100.0%; height: 100.0%;"><b>阖闾城遗址博物馆</b><br>地址：环太湖公路马山闾江2号<br>行政区：滨湖区<br>电话：0510-81855114<br>开放时间：01/01-12/31 周一 全天不开放；01/01-12/31 周二–周日 09:00–17:00开放 最晚进入16:00；春节 09:00–17:00开放 最晚进入16:00<br><span style='color:#888'>WGS84: 120.130240, 31.513774</span></div>`)[0];
+                popup_8c593e267b6d702aad272fbcae99dec5.setContent(html_3219710f50b5d0592f1c05c5511979ba);
+            
+        
+
+        circle_marker_b5770ebe550fde10c8cf80f9b6524e2b.bindPopup(popup_8c593e267b6d702aad272fbcae99dec5)
+        ;
+
+        
+    
+    
+            circle_marker_b5770ebe550fde10c8cf80f9b6524e2b.bindTooltip(
+                `<div>
+                     阖闾城遗址博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13ec84c89db216e5b1da4a64126bb41b = L.circleMarker(
+                [31.538850403909354, 120.216913205846],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_e7aa160fb68e1bf7d76d7428007fb3fc = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_6ddf605c4199db37dbbeb1105ffecc03 = $(`<div id="html_6ddf605c4199db37dbbeb1105ffecc03" style="width: 100.0%; height: 100.0%;"><b>梅园水厂工业遗址陈列室</b><br>地址：香雪路与环湖路交汇处管社山庄<br>行政区：滨湖区<br>电话：nan<br>开放时间：24小时营业<br><span style='color:#888'>WGS84: 120.216913, 31.538850</span></div>`)[0];
+                popup_e7aa160fb68e1bf7d76d7428007fb3fc.setContent(html_6ddf605c4199db37dbbeb1105ffecc03);
+            
+        
+
+        circle_marker_13ec84c89db216e5b1da4a64126bb41b.bindPopup(popup_e7aa160fb68e1bf7d76d7428007fb3fc)
+        ;
+
+        
+    
+    
+            circle_marker_13ec84c89db216e5b1da4a64126bb41b.bindTooltip(
+                `<div>
+                     梅园水厂工业遗址陈列室
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4871ac3ec3b563289be1df4d5ac152ba = L.circleMarker(
+                [31.55385145335711, 120.22296209166768],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_9c09c4f3eef0f9ef6395ce5de90b6f4e = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_48019125e51694d8ea107f1e36dd3855 = $(`<div id="html_48019125e51694d8ea107f1e36dd3855" style="width: 100.0%; height: 100.0%;"><b>无锡中医药科普博物馆</b><br>地址：梁溪西路卞家湾13号荣氏梅园<br>行政区：滨湖区<br>电话：nan<br>开放时间：08:00-16:30<br><span style='color:#888'>WGS84: 120.222962, 31.553851</span></div>`)[0];
+                popup_9c09c4f3eef0f9ef6395ce5de90b6f4e.setContent(html_48019125e51694d8ea107f1e36dd3855);
+            
+        
+
+        circle_marker_4871ac3ec3b563289be1df4d5ac152ba.bindPopup(popup_9c09c4f3eef0f9ef6395ce5de90b6f4e)
+        ;
+
+        
+    
+    
+            circle_marker_4871ac3ec3b563289be1df4d5ac152ba.bindTooltip(
+                `<div>
+                     无锡中医药科普博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a54491e142214a66411211057bfe4544 = L.circleMarker(
+                [31.553737482702306, 120.22298614301299],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_9db4fe0e2dc9ee7f4c5b1118b848a12e = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_65568305d93f0ad61a1e565f75cdbf34 = $(`<div id="html_65568305d93f0ad61a1e565f75cdbf34" style="width: 100.0%; height: 100.0%;"><b>慎修堂</b><br>地址：梁溪西路卞家湾13号荣氏梅园<br>行政区：滨湖区<br>电话：nan<br>开放时间：07:00-17:00<br><span style='color:#888'>WGS84: 120.222986, 31.553737</span></div>`)[0];
+                popup_9db4fe0e2dc9ee7f4c5b1118b848a12e.setContent(html_65568305d93f0ad61a1e565f75cdbf34);
+            
+        
+
+        circle_marker_a54491e142214a66411211057bfe4544.bindPopup(popup_9db4fe0e2dc9ee7f4c5b1118b848a12e)
+        ;
+
+        
+    
+    
+            circle_marker_a54491e142214a66411211057bfe4544.bindTooltip(
+                `<div>
+                     慎修堂
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_afd20aa5abdbba8cb58a5be340bda1cc = L.circleMarker(
+                [31.555457557980887, 120.21765422085649],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_c99126a5e5e8fde822325208d985911d = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_82deb4d8242902662766a5ddf83bf0f3 = $(`<div id="html_82deb4d8242902662766a5ddf83bf0f3" style="width: 100.0%; height: 100.0%;"><b>无锡梅园公园-中国梅花博物馆</b><br>地址：环太湖公路与香雪路交叉口北280米<br>行政区：滨湖区<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.217654, 31.555458</span></div>`)[0];
+                popup_c99126a5e5e8fde822325208d985911d.setContent(html_82deb4d8242902662766a5ddf83bf0f3);
+            
+        
+
+        circle_marker_afd20aa5abdbba8cb58a5be340bda1cc.bindPopup(popup_c99126a5e5e8fde822325208d985911d)
+        ;
+
+        
+    
+    
+            circle_marker_afd20aa5abdbba8cb58a5be340bda1cc.bindTooltip(
+                `<div>
+                     无锡梅园公园-中国梅花博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd4b69d1a6d90ac002aeb4b1dfe6151e = L.circleMarker(
+                [31.495968764182372, 120.27134634445063],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_4e2a7af4fda2262666b0e08b5e1d236e = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_376c85061becd868e764e645dca510d6 = $(`<div id="html_376c85061becd868e764e645dca510d6" style="width: 100.0%; height: 100.0%;"><b>全球文化博物馆(无锡江南大悦城)</b><br>地址：蠡湖大道与高浪路交叉口西北侧无锡江南大悦城L1层L1-19-1<br>行政区：滨湖区<br>电话：nan<br>开放时间：10:00-22:00<br><span style='color:#888'>WGS84: 120.271346, 31.495969</span></div>`)[0];
+                popup_4e2a7af4fda2262666b0e08b5e1d236e.setContent(html_376c85061becd868e764e645dca510d6);
+            
+        
+
+        circle_marker_bd4b69d1a6d90ac002aeb4b1dfe6151e.bindPopup(popup_4e2a7af4fda2262666b0e08b5e1d236e)
+        ;
+
+        
+    
+    
+            circle_marker_bd4b69d1a6d90ac002aeb4b1dfe6151e.bindTooltip(
+                `<div>
+                     全球文化博物馆(无锡江南大悦城)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61b5963d6f9aba4540195926c1195a9c = L.circleMarker(
+                [31.513531306776464, 120.1304010488272],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_1f6eed20d91880fa5e75e5a7ae110cd1 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_fe33ce35327a620e183f23f2c58c5f52 = $(`<div id="html_fe33ce35327a620e183f23f2c58c5f52" style="width: 100.0%; height: 100.0%;"><b>吴都阖闾城遗址博物馆-观景台</b><br>地址：环太湖公路马山闾江2号吴都阖闾城遗址博物馆F3<br>行政区：滨湖区<br>电话：nan<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 120.130401, 31.513531</span></div>`)[0];
+                popup_1f6eed20d91880fa5e75e5a7ae110cd1.setContent(html_fe33ce35327a620e183f23f2c58c5f52);
+            
+        
+
+        circle_marker_61b5963d6f9aba4540195926c1195a9c.bindPopup(popup_1f6eed20d91880fa5e75e5a7ae110cd1)
+        ;
+
+        
+    
+    
+            circle_marker_61b5963d6f9aba4540195926c1195a9c.bindTooltip(
+                `<div>
+                     吴都阖闾城遗址博物馆-观景台
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8fd856983e47069bad894a96de7873b5 = L.circleMarker(
+                [31.41635445977013, 120.06657065926304],
+                {"bubblingMouseEvents": true, "color": "#984ea3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_9fddb72a903a6523f6c4b4f1e0075b71 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_22b66be0caa94d594826955193b7c5f9 = $(`<div id="html_22b66be0caa94d594826955193b7c5f9" style="width: 100.0%; height: 100.0%;"><b>紫砂博物馆</b><br>地址：马山街道马山街道马山街道马山街道马山街道环山西路68号灵山小镇拈花湾内<br>行政区：滨湖区<br>电话：0510-85400000<br>开放时间：10:00-18:00<br><span style='color:#888'>WGS84: 120.066571, 31.416354</span></div>`)[0];
+                popup_9fddb72a903a6523f6c4b4f1e0075b71.setContent(html_22b66be0caa94d594826955193b7c5f9);
+            
+        
+
+        circle_marker_8fd856983e47069bad894a96de7873b5.bindPopup(popup_9fddb72a903a6523f6c4b4f1e0075b71)
+        ;
+
+        
+    
+    
+            circle_marker_8fd856983e47069bad894a96de7873b5.bindTooltip(
+                `<div>
+                     紫砂博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d4249452511e914e5139b8cd44e82d0 = L.circleMarker(
+                [31.55733897973076, 120.34962441737825],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_e5a593638f88c729bb0a6735cf6be376 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_43f94a7e3e6b96af83b44e60289d656b = $(`<div id="html_43f94a7e3e6b96af83b44e60289d656b" style="width: 100.0%; height: 100.0%;"><b>无锡大师奖博物馆</b><br>地址：机场路135号<br>行政区：新吴区<br>电话：nan<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 120.349624, 31.557339</span></div>`)[0];
+                popup_e5a593638f88c729bb0a6735cf6be376.setContent(html_43f94a7e3e6b96af83b44e60289d656b);
+            
+        
+
+        circle_marker_5d4249452511e914e5139b8cd44e82d0.bindPopup(popup_e5a593638f88c729bb0a6735cf6be376)
+        ;
+
+        
+    
+    
+            circle_marker_5d4249452511e914e5139b8cd44e82d0.bindTooltip(
+                `<div>
+                     无锡大师奖博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f5ba91727c44fc82e787637440b72f8 = L.circleMarker(
+                [31.54378462167702, 120.4322933167179],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_594a80b4b0110b42e738c8967d621ed9 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_1a285492a7a37c51f45269120505baba = $(`<div id="html_1a285492a7a37c51f45269120505baba" style="width: 100.0%; height: 100.0%;"><b>梅里遗址博物馆</b><br>地址：梅村街道吴音水岸街206号<br>行政区：新吴区<br>电话：nan<br>开放时间：09:00-16:30<br><span style='color:#888'>WGS84: 120.432293, 31.543785</span></div>`)[0];
+                popup_594a80b4b0110b42e738c8967d621ed9.setContent(html_1a285492a7a37c51f45269120505baba);
+            
+        
+
+        circle_marker_3f5ba91727c44fc82e787637440b72f8.bindPopup(popup_594a80b4b0110b42e738c8967d621ed9)
+        ;
+
+        
+    
+    
+            circle_marker_3f5ba91727c44fc82e787637440b72f8.bindTooltip(
+                `<div>
+                     梅里遗址博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_955c705632434b90332ca7edfbdf3296 = L.circleMarker(
+                [31.545490417798504, 120.43093209700127],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_52ee7dc57db663f046092830ebe506f0 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_5d21293600d51171d0c8e3e5b8b4eb3c = $(`<div id="html_5d21293600d51171d0c8e3e5b8b4eb3c" style="width: 100.0%; height: 100.0%;"><b>华夏生肖博物馆</b><br>地址：梅里古镇内(北侧)<br>行政区：新吴区<br>电话：13906195558<br>开放时间：08:30-16:30<br><span style='color:#888'>WGS84: 120.430932, 31.545490</span></div>`)[0];
+                popup_52ee7dc57db663f046092830ebe506f0.setContent(html_5d21293600d51171d0c8e3e5b8b4eb3c);
+            
+        
+
+        circle_marker_955c705632434b90332ca7edfbdf3296.bindPopup(popup_52ee7dc57db663f046092830ebe506f0)
+        ;
+
+        
+    
+    
+            circle_marker_955c705632434b90332ca7edfbdf3296.bindTooltip(
+                `<div>
+                     华夏生肖博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ad7081de9cb5eb94f1ed478a00ce9a94 = L.circleMarker(
+                [31.49432622696553, 120.50431094664661],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_87d0aa6b72acb877120121e1a112c193 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_58894d52bd66b7dae0e4b946dd89ce51 = $(`<div id="html_58894d52bd66b7dae0e4b946dd89ce51" style="width: 100.0%; height: 100.0%;"><b>鸿山遗址博物馆</b><br>地址：飞凤路200号<br>行政区：新吴区<br>电话：0510-88529556;0510-88529568<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 120.504311, 31.494326</span></div>`)[0];
+                popup_87d0aa6b72acb877120121e1a112c193.setContent(html_58894d52bd66b7dae0e4b946dd89ce51);
+            
+        
+
+        circle_marker_ad7081de9cb5eb94f1ed478a00ce9a94.bindPopup(popup_87d0aa6b72acb877120121e1a112c193)
+        ;
+
+        
+    
+    
+            circle_marker_ad7081de9cb5eb94f1ed478a00ce9a94.bindTooltip(
+                `<div>
+                     鸿山遗址博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d23825d7ac02fff293cfa9f3e4a7a19c = L.circleMarker(
+                [31.494548256375666, 120.5033221104744],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_388e38aeeaed9ce4bdab90899dc308f3 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d2f04a0f23f7e159c5c96a2d8a0ba244 = $(`<div id="html_d2f04a0f23f7e159c5c96a2d8a0ba244" style="width: 100.0%; height: 100.0%;"><b>中国吴文化博物馆</b><br>地址：鸿山国家考古遗址公园<br>行政区：新吴区<br>电话：nan<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 120.503322, 31.494548</span></div>`)[0];
+                popup_388e38aeeaed9ce4bdab90899dc308f3.setContent(html_d2f04a0f23f7e159c5c96a2d8a0ba244);
+            
+        
+
+        circle_marker_d23825d7ac02fff293cfa9f3e4a7a19c.bindPopup(popup_388e38aeeaed9ce4bdab90899dc308f3)
+        ;
+
+        
+    
+    
+            circle_marker_d23825d7ac02fff293cfa9f3e4a7a19c.bindTooltip(
+                `<div>
+                     中国吴文化博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dd97a4b77772ae35cf68a53b9ba200d1 = L.circleMarker(
+                [31.544082622729352, 120.42887273803383],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_6851d94a0282dfa01753a34a93409c19 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_9cc7e7ffdc34c4d0d310e5e6939e92db = $(`<div id="html_9cc7e7ffdc34c4d0d310e5e6939e92db" style="width: 100.0%; height: 100.0%;"><b>广誉远中医药博物馆</b><br>地址：梅村街道吴音水岸23-24号<br>行政区：新吴区<br>电话：nan<br>开放时间：09:00-21:00<br><span style='color:#888'>WGS84: 120.428873, 31.544083</span></div>`)[0];
+                popup_6851d94a0282dfa01753a34a93409c19.setContent(html_9cc7e7ffdc34c4d0d310e5e6939e92db);
+            
+        
+
+        circle_marker_dd97a4b77772ae35cf68a53b9ba200d1.bindPopup(popup_6851d94a0282dfa01753a34a93409c19)
+        ;
+
+        
+    
+    
+            circle_marker_dd97a4b77772ae35cf68a53b9ba200d1.bindTooltip(
+                `<div>
+                     广誉远中医药博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d8a33edbd81176111443455582288534 = L.circleMarker(
+                [31.494597841807405, 120.50352187828507],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_c48879cc7ff98b7e6ac92a46bd36cad1 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_7120cb0bd9bbb38ba18d6cc062fc0559 = $(`<div id="html_7120cb0bd9bbb38ba18d6cc062fc0559" style="width: 100.0%; height: 100.0%;"><b>鸿山遗址博物馆-语音导览</b><br>地址：鸿山镇鸿山街道飞凤路8号鸿山遗址博物馆内<br>行政区：新吴区<br>电话：nan<br>开放时间：09:00-21:00<br><span style='color:#888'>WGS84: 120.503522, 31.494598</span></div>`)[0];
+                popup_c48879cc7ff98b7e6ac92a46bd36cad1.setContent(html_7120cb0bd9bbb38ba18d6cc062fc0559);
+            
+        
+
+        circle_marker_d8a33edbd81176111443455582288534.bindPopup(popup_c48879cc7ff98b7e6ac92a46bd36cad1)
+        ;
+
+        
+    
+    
+            circle_marker_d8a33edbd81176111443455582288534.bindTooltip(
+                `<div>
+                     鸿山遗址博物馆-语音导览
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6cbcb15d04daf5d7841b10fc20d552e = L.circleMarker(
+                [31.71238332452079, 120.32059025487379],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_441df188dabc40badf1ad7e938583955 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_1f83e73a857948e0620e0ebe4e19ccdd = $(`<div id="html_1f83e73a857948e0620e0ebe4e19ccdd" style="width: 100.0%; height: 100.0%;"><b>霞客行·研学岛</b><br>地址：徐霞客镇霞客路77号<br>行政区：江阴市<br>电话：nan<br>开放时间：08:30-16:30<br><span style='color:#888'>WGS84: 120.320590, 31.712383</span></div>`)[0];
+                popup_441df188dabc40badf1ad7e938583955.setContent(html_1f83e73a857948e0620e0ebe4e19ccdd);
+            
+        
+
+        circle_marker_d6cbcb15d04daf5d7841b10fc20d552e.bindPopup(popup_441df188dabc40badf1ad7e938583955)
+        ;
+
+        
+    
+    
+            circle_marker_d6cbcb15d04daf5d7841b10fc20d552e.bindTooltip(
+                `<div>
+                     霞客行·研学岛
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f8d39fa480725672f91dc7951d52fc4 = L.circleMarker(
+                [31.711394557668925, 120.32146696633268],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_607be98d352a217f1cd64e4eb8e92de7 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_55db26ed1addc4f44159f631af9cdd6a = $(`<div id="html_55db26ed1addc4f44159f631af9cdd6a" style="width: 100.0%; height: 100.0%;"><b>中国国家地理·徐霞客文化体验中心</b><br>地址：徐霞客镇霞客路87号<br>行政区：江阴市<br>电话：nan<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 120.321467, 31.711395</span></div>`)[0];
+                popup_607be98d352a217f1cd64e4eb8e92de7.setContent(html_55db26ed1addc4f44159f631af9cdd6a);
+            
+        
+
+        circle_marker_6f8d39fa480725672f91dc7951d52fc4.bindPopup(popup_607be98d352a217f1cd64e4eb8e92de7)
+        ;
+
+        
+    
+    
+            circle_marker_6f8d39fa480725672f91dc7951d52fc4.bindTooltip(
+                `<div>
+                     中国国家地理·徐霞客文化体验中心
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a8e785ba5c9b3a985d01158a514b39a1 = L.circleMarker(
+                [31.7859082904603, 120.4534635390846],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_294bc136c05aae7fa9784b4fee5b2d90 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_6ddcd08d48691e73e7a1b128da2c3061 = $(`<div id="html_6ddcd08d48691e73e7a1b128da2c3061" style="width: 100.0%; height: 100.0%;"><b>天华军体博物馆</b><br>地址：华士镇陆桥社区荷花南路88号天华生态园内<br>行政区：江阴市<br>电话：nan<br>开放时间：09:00-16:00<br><span style='color:#888'>WGS84: 120.453464, 31.785908</span></div>`)[0];
+                popup_294bc136c05aae7fa9784b4fee5b2d90.setContent(html_6ddcd08d48691e73e7a1b128da2c3061);
+            
+        
+
+        circle_marker_a8e785ba5c9b3a985d01158a514b39a1.bindPopup(popup_294bc136c05aae7fa9784b4fee5b2d90)
+        ;
+
+        
+    
+    
+            circle_marker_a8e785ba5c9b3a985d01158a514b39a1.bindTooltip(
+                `<div>
+                     天华军体博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d809e35465f5b1b6d9fda9ea80ebeaff = L.circleMarker(
+                [31.79807948371356, 120.49427416983247],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_bee4c989d822ecc245f9fd91dd64e1ff = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_546ff6305a28fb6e3936e86c2a794732 = $(`<div id="html_546ff6305a28fb6e3936e86c2a794732" style="width: 100.0%; height: 100.0%;"><b>马文化博物馆</b><br>地址：新桥镇南环路888号桃园山庄<br>行政区：江阴市<br>电话：0510-81699000;0510-86930666<br>开放时间：09:00-21:00<br><span style='color:#888'>WGS84: 120.494274, 31.798079</span></div>`)[0];
+                popup_bee4c989d822ecc245f9fd91dd64e1ff.setContent(html_546ff6305a28fb6e3936e86c2a794732);
+            
+        
+
+        circle_marker_d809e35465f5b1b6d9fda9ea80ebeaff.bindPopup(popup_bee4c989d822ecc245f9fd91dd64e1ff)
+        ;
+
+        
+    
+    
+            circle_marker_d809e35465f5b1b6d9fda9ea80ebeaff.bindTooltip(
+                `<div>
+                     马文化博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a87160b3f49da4213201f59adf21ce12 = L.circleMarker(
+                [31.781238179712837, 120.3998571928234],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_824f01cbe2beb88d63eafd22f51dbfd3 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d00cf67552e64b836f2626c262773e5e = $(`<div id="html_d00cf67552e64b836f2626c262773e5e" style="width: 100.0%; height: 100.0%;"><b>东方口琴博物馆</b><br>地址：祝塘镇云顾路8号<br>行政区：江阴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.399857, 31.781238</span></div>`)[0];
+                popup_824f01cbe2beb88d63eafd22f51dbfd3.setContent(html_d00cf67552e64b836f2626c262773e5e);
+            
+        
+
+        circle_marker_a87160b3f49da4213201f59adf21ce12.bindPopup(popup_824f01cbe2beb88d63eafd22f51dbfd3)
+        ;
+
+        
+    
+    
+            circle_marker_a87160b3f49da4213201f59adf21ce12.bindTooltip(
+                `<div>
+                     东方口琴博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e06d816844bba79e5f3071668566e6a7 = L.circleMarker(
+                [31.82396936560353, 120.34143832493415],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_d0227c5b3fd0a3e3ae0dbb9f0dd55169 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_14cae706229a1b46dccf88e37765621c = $(`<div id="html_14cae706229a1b46dccf88e37765621c" style="width: 100.0%; height: 100.0%;"><b>祥和堂博物馆</b><br>地址：峭岐镇峭毗路9号<br>行政区：江阴市<br>电话：nan<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 120.341438, 31.823969</span></div>`)[0];
+                popup_d0227c5b3fd0a3e3ae0dbb9f0dd55169.setContent(html_14cae706229a1b46dccf88e37765621c);
+            
+        
+
+        circle_marker_e06d816844bba79e5f3071668566e6a7.bindPopup(popup_d0227c5b3fd0a3e3ae0dbb9f0dd55169)
+        ;
+
+        
+    
+    
+            circle_marker_e06d816844bba79e5f3071668566e6a7.bindTooltip(
+                `<div>
+                     祥和堂博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b0e46766665113dbe308d3be28e47b2 = L.circleMarker(
+                [31.797926622384306, 120.49466270575806],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_2552f6a6e56ddfb53b68208f30f6d7ea = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_af9d0c6637b79ce9f666c668520d1f84 = $(`<div id="html_af9d0c6637b79ce9f666c668520d1f84" style="width: 100.0%; height: 100.0%;"><b>海澜飞马水城博物馆</b><br>地址：民乐路与文体路交叉口西南360米<br>行政区：江阴市<br>电话：nan<br>开放时间：24小时营业<br><span style='color:#888'>WGS84: 120.494663, 31.797927</span></div>`)[0];
+                popup_2552f6a6e56ddfb53b68208f30f6d7ea.setContent(html_af9d0c6637b79ce9f666c668520d1f84);
+            
+        
+
+        circle_marker_7b0e46766665113dbe308d3be28e47b2.bindPopup(popup_2552f6a6e56ddfb53b68208f30f6d7ea)
+        ;
+
+        
+    
+    
+            circle_marker_7b0e46766665113dbe308d3be28e47b2.bindTooltip(
+                `<div>
+                     海澜飞马水城博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e1efb71ba0f2074a20eadff00f61e911 = L.circleMarker(
+                [31.92270924897022, 120.29210951601851],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_96e5a2466e128b1591bb6f9f371802a8 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d92feed06cda2305fd98b5ffb5edeab4 = $(`<div id="html_d92feed06cda2305fd98b5ffb5edeab4" style="width: 100.0%; height: 100.0%;"><b>江阴博物馆</b><br>地址：澄江中路128号<br>行政区：江阴市<br>电话：0510-86862662<br>开放时间：09:00-16:30<br><span style='color:#888'>WGS84: 120.292110, 31.922709</span></div>`)[0];
+                popup_96e5a2466e128b1591bb6f9f371802a8.setContent(html_d92feed06cda2305fd98b5ffb5edeab4);
+            
+        
+
+        circle_marker_e1efb71ba0f2074a20eadff00f61e911.bindPopup(popup_96e5a2466e128b1591bb6f9f371802a8)
+        ;
+
+        
+    
+    
+            circle_marker_e1efb71ba0f2074a20eadff00f61e911.bindTooltip(
+                `<div>
+                     江阴博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7e927512ad7e9ded227831a14f78c323 = L.circleMarker(
+                [31.786709687636318, 120.45271008939643],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_faa39c5719843e084e661062c2279d03 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_ffcd5d00c6e3d12aa53a06e30d5015ff = $(`<div id="html_ffcd5d00c6e3d12aa53a06e30d5015ff" style="width: 100.0%; height: 100.0%;"><b>江阴市中医药博物馆</b><br>地址：荷花南路与陆桥东街交叉口南440米<br>行政区：江阴市<br>电话：nan<br>开放时间：24小时营业<br><span style='color:#888'>WGS84: 120.452710, 31.786710</span></div>`)[0];
+                popup_faa39c5719843e084e661062c2279d03.setContent(html_ffcd5d00c6e3d12aa53a06e30d5015ff);
+            
+        
+
+        circle_marker_7e927512ad7e9ded227831a14f78c323.bindPopup(popup_faa39c5719843e084e661062c2279d03)
+        ;
+
+        
+    
+    
+            circle_marker_7e927512ad7e9ded227831a14f78c323.bindTooltip(
+                `<div>
+                     江阴市中医药博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f82d16896ad1b0c48ee4a6736c3955e7 = L.circleMarker(
+                [31.802663063385854, 120.21866675690971],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_2b8561271ee4784c2bde38a5576c0883 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_1930aa94cca8695d52fc883a938dd5c7 = $(`<div id="html_1930aa94cca8695d52fc883a938dd5c7" style="width: 100.0%; height: 100.0%;"><b>乡镇盆景博物馆</b><br>地址：月城镇南环路38号<br>行政区：江阴市<br>电话：nan<br>开放时间：09:00-16:00<br><span style='color:#888'>WGS84: 120.218667, 31.802663</span></div>`)[0];
+                popup_2b8561271ee4784c2bde38a5576c0883.setContent(html_1930aa94cca8695d52fc883a938dd5c7);
+            
+        
+
+        circle_marker_f82d16896ad1b0c48ee4a6736c3955e7.bindPopup(popup_2b8561271ee4784c2bde38a5576c0883)
+        ;
+
+        
+    
+    
+            circle_marker_f82d16896ad1b0c48ee4a6736c3955e7.bindTooltip(
+                `<div>
+                     乡镇盆景博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db433b933104de0672a9507005681cb5 = L.circleMarker(
+                [31.805019500781793, 120.22330695230654],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_c9ff20051f8ec6596d76185822ebbedb = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_89a6a4853781b34207fd472506b927a5 = $(`<div id="html_89a6a4853781b34207fd472506b927a5" style="width: 100.0%; height: 100.0%;"><b>老酒博物馆</b><br>地址：月城镇卧龙大街138号<br>行政区：江阴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.223307, 31.805020</span></div>`)[0];
+                popup_c9ff20051f8ec6596d76185822ebbedb.setContent(html_89a6a4853781b34207fd472506b927a5);
+            
+        
+
+        circle_marker_db433b933104de0672a9507005681cb5.bindPopup(popup_c9ff20051f8ec6596d76185822ebbedb)
+        ;
+
+        
+    
+    
+            circle_marker_db433b933104de0672a9507005681cb5.bindTooltip(
+                `<div>
+                     老酒博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_018c04ea37a396b4b43110ba567babc6 = L.circleMarker(
+                [31.92243128621271, 120.29204561073176],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_bb72db74ee109bdd9731d634b66cb4a6 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_ef9c2577a1d1a892f1df87dcd62f280f = $(`<div id="html_ef9c2577a1d1a892f1df87dcd62f280f" style="width: 100.0%; height: 100.0%;"><b>江阴博物馆自然标本馆</b><br>地址：澄江街道澄江中路128号天华文化中心江阴博物馆<br>行政区：江阴市<br>电话：nan<br>开放时间：09:00-16:30<br><span style='color:#888'>WGS84: 120.292046, 31.922431</span></div>`)[0];
+                popup_bb72db74ee109bdd9731d634b66cb4a6.setContent(html_ef9c2577a1d1a892f1df87dcd62f280f);
+            
+        
+
+        circle_marker_018c04ea37a396b4b43110ba567babc6.bindPopup(popup_bb72db74ee109bdd9731d634b66cb4a6)
+        ;
+
+        
+    
+    
+            circle_marker_018c04ea37a396b4b43110ba567babc6.bindTooltip(
+                `<div>
+                     江阴博物馆自然标本馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be3e1e7ab3d118e49afa5c3f7f78d956 = L.circleMarker(
+                [31.918453560168306, 120.26290360726686],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_0c2f706674e9a17ab7e01843f7f920be = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_003e794bb0328b201c6cc06c04a1acc0 = $(`<div id="html_003e794bb0328b201c6cc06c04a1acc0" style="width: 100.0%; height: 100.0%;"><b>宝壶斋茶具博物馆</b><br>地址：澄江西路150-152号<br>行政区：江阴市<br>电话：0510-86800001<br>开放时间：08:00-21:00<br><span style='color:#888'>WGS84: 120.262904, 31.918454</span></div>`)[0];
+                popup_0c2f706674e9a17ab7e01843f7f920be.setContent(html_003e794bb0328b201c6cc06c04a1acc0);
+            
+        
+
+        circle_marker_be3e1e7ab3d118e49afa5c3f7f78d956.bindPopup(popup_0c2f706674e9a17ab7e01843f7f920be)
+        ;
+
+        
+    
+    
+            circle_marker_be3e1e7ab3d118e49afa5c3f7f78d956.bindTooltip(
+                `<div>
+                     宝壶斋茶具博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8401e855c2f0f6cfea63b8445ee1d8e7 = L.circleMarker(
+                [31.849519266929807, 120.44206126009342],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_2f51f3ebf2bd32d9fb7500dfa0a3fbf3 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_6af8c4edb2c23c063f0249eff05a256c = $(`<div id="html_6af8c4edb2c23c063f0249eff05a256c" style="width: 100.0%; height: 100.0%;"><b>凯旋门爱情博物馆</b><br>地址：菲律宾别墅西侧170米<br>行政区：江阴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.442061, 31.849519</span></div>`)[0];
+                popup_2f51f3ebf2bd32d9fb7500dfa0a3fbf3.setContent(html_6af8c4edb2c23c063f0249eff05a256c);
+            
+        
+
+        circle_marker_8401e855c2f0f6cfea63b8445ee1d8e7.bindPopup(popup_2f51f3ebf2bd32d9fb7500dfa0a3fbf3)
+        ;
+
+        
+    
+    
+            circle_marker_8401e855c2f0f6cfea63b8445ee1d8e7.bindTooltip(
+                `<div>
+                     凯旋门爱情博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6023920d45b32044f9210c9bd5eb081c = L.circleMarker(
+                [31.920795471582583, 120.33194113953837],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_b7eb830aab51f03325204112487cb728 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_a6202eac8ebcecfc6bd3095c778cc04f = $(`<div id="html_a6202eac8ebcecfc6bd3095c778cc04f" style="width: 100.0%; height: 100.0%;"><b>江阴东方航天检测服务有限公司</b><br>地址：金山路与蟠龙山路交叉口东360米<br>行政区：江阴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 120.331941, 31.920795</span></div>`)[0];
+                popup_b7eb830aab51f03325204112487cb728.setContent(html_a6202eac8ebcecfc6bd3095c778cc04f);
+            
+        
+
+        circle_marker_6023920d45b32044f9210c9bd5eb081c.bindPopup(popup_b7eb830aab51f03325204112487cb728)
+        ;
+
+        
+    
+    
+            circle_marker_6023920d45b32044f9210c9bd5eb081c.bindTooltip(
+                `<div>
+                     江阴东方航天检测服务有限公司
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d418bafb3481d43f71d6c4d25b173e03 = L.circleMarker(
+                [31.84936843429936, 120.44471567259049],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_8c09abe750ce058e154c9c5510e8df99 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_30f99eefc7829e78df297062b51bb06b = $(`<div id="html_30f99eefc7829e78df297062b51bb06b" style="width: 100.0%; height: 100.0%;"><b>华西村博物馆</b><br>地址：澄杨路<br>行政区：江阴市<br>电话：0510-86216789<br>开放时间：08:00-17:00<br><span style='color:#888'>WGS84: 120.444716, 31.849368</span></div>`)[0];
+                popup_8c09abe750ce058e154c9c5510e8df99.setContent(html_30f99eefc7829e78df297062b51bb06b);
+            
+        
+
+        circle_marker_d418bafb3481d43f71d6c4d25b173e03.bindPopup(popup_8c09abe750ce058e154c9c5510e8df99)
+        ;
+
+        
+    
+    
+            circle_marker_d418bafb3481d43f71d6c4d25b173e03.bindTooltip(
+                `<div>
+                     华西村博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d9a9e46b518131a55cb96688525d8c8e = L.circleMarker(
+                [31.93485525714764, 120.27244691420029],
+                {"bubblingMouseEvents": true, "color": "#a65628", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a65628", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_995e5cfead6da5541c3dc28944d2b9d1 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_3f60affc7891b56dac72a58b15b8aee3 = $(`<div id="html_3f60affc7891b56dac72a58b15b8aee3" style="width: 100.0%; height: 100.0%;"><b>江阴军事文化博物馆(装修中)</b><br>地址：公园路159号<br>行政区：江阴市<br>电话：0510-86857228<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 120.272447, 31.934855</span></div>`)[0];
+                popup_995e5cfead6da5541c3dc28944d2b9d1.setContent(html_3f60affc7891b56dac72a58b15b8aee3);
+            
+        
+
+        circle_marker_d9a9e46b518131a55cb96688525d8c8e.bindPopup(popup_995e5cfead6da5541c3dc28944d2b9d1)
+        ;
+
+        
+    
+    
+            circle_marker_d9a9e46b518131a55cb96688525d8c8e.bindTooltip(
+                `<div>
+                     江阴军事文化博物馆(装修中)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e9321b9770f92b3cebc387560d205a3 = L.circleMarker(
+                [31.442267215070228, 119.99704091452273],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_b03c927423a820f74da1f0023a8245eb = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_a15ad17c8107c32249d7cdc9769de285 = $(`<div id="html_a15ad17c8107c32249d7cdc9769de285" style="width: 100.0%; height: 100.0%;"><b>太湖风筝博物馆</b><br>地址：学前路与新南路交叉口东北280米<br>行政区：宜兴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 119.997041, 31.442267</span></div>`)[0];
+                popup_b03c927423a820f74da1f0023a8245eb.setContent(html_a15ad17c8107c32249d7cdc9769de285);
+            
+        
+
+        circle_marker_5e9321b9770f92b3cebc387560d205a3.bindPopup(popup_b03c927423a820f74da1f0023a8245eb)
+        ;
+
+        
+    
+    
+            circle_marker_5e9321b9770f92b3cebc387560d205a3.bindTooltip(
+                `<div>
+                     太湖风筝博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0c54cb7eb07d4301690b6e4d913fa98 = L.circleMarker(
+                [31.359521581432787, 119.8477143477195],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_e9afd849947214c6639cbc6b9d6ada5c = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_7d12336ec7fab9a92458d58e09e42957 = $(`<div id="html_7d12336ec7fab9a92458d58e09e42957" style="width: 100.0%; height: 100.0%;"><b>宜兴市博物馆</b><br>地址：解放东路388号<br>行政区：宜兴市<br>电话：0510-87098166;0510-87098169<br>开放时间：09:00-16:00<br><span style='color:#888'>WGS84: 119.847714, 31.359522</span></div>`)[0];
+                popup_e9afd849947214c6639cbc6b9d6ada5c.setContent(html_7d12336ec7fab9a92458d58e09e42957);
+            
+        
+
+        circle_marker_d0c54cb7eb07d4301690b6e4d913fa98.bindPopup(popup_e9afd849947214c6639cbc6b9d6ada5c)
+        ;
+
+        
+    
+    
+            circle_marker_d0c54cb7eb07d4301690b6e4d913fa98.bindTooltip(
+                `<div>
+                     宜兴市博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e7a100ac0c0fed799076b7e42928a7f5 = L.circleMarker(
+                [31.26632298694784, 119.85676256847368],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_7187125874c5d99fddd54e2aca86a828 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_a390063805f8a530ca0404963bb56f14 = $(`<div id="html_a390063805f8a530ca0404963bb56f14" style="width: 100.0%; height: 100.0%;"><b>中国宜兴紫砂博物馆</b><br>地址：丁山大街与东坡东路交叉口<br>行政区：宜兴市<br>电话：nan<br>开放时间：08:30-16:30<br><span style='color:#888'>WGS84: 119.856763, 31.266323</span></div>`)[0];
+                popup_7187125874c5d99fddd54e2aca86a828.setContent(html_a390063805f8a530ca0404963bb56f14);
+            
+        
+
+        circle_marker_e7a100ac0c0fed799076b7e42928a7f5.bindPopup(popup_7187125874c5d99fddd54e2aca86a828)
+        ;
+
+        
+    
+    
+            circle_marker_e7a100ac0c0fed799076b7e42928a7f5.bindTooltip(
+                `<div>
+                     中国宜兴紫砂博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_71a34cf3068badd75005d2aefcbb311d = L.circleMarker(
+                [31.261569349948815, 119.82563592256156],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_38d05e3254321e916b2b0d4d6b11078e = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_55dc85813ab216a4b12903954b952233 = $(`<div id="html_55dc85813ab216a4b12903954b952233" style="width: 100.0%; height: 100.0%;"><b>中国宜兴陶瓷博物馆</b><br>地址：丁蜀镇丁山北路150号<br>行政区：宜兴市<br>电话：0510-87188255<br>开放时间：周二-周日 08:30-16:30开放（16:00停止售票，16:00停止入园）；周一 12:00-16:30开放（16:00停止售票，16:00停止入园）；每周一上午闭馆,下午正常开馆(节假日除外)；清明节,劳动节,端午节,中秋节,国庆节 08:30-16:30开放（16:00停止售票，16:00停止入园）；具体开放时间以官方通知为准<br><span style='color:#888'>WGS84: 119.825636, 31.261569</span></div>`)[0];
+                popup_38d05e3254321e916b2b0d4d6b11078e.setContent(html_55dc85813ab216a4b12903954b952233);
+            
+        
+
+        circle_marker_71a34cf3068badd75005d2aefcbb311d.bindPopup(popup_38d05e3254321e916b2b0d4d6b11078e)
+        ;
+
+        
+    
+    
+            circle_marker_71a34cf3068badd75005d2aefcbb311d.bindTooltip(
+                `<div>
+                     中国宜兴陶瓷博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3fbc3bab179b45d2ca01f2a5d14c0980 = L.circleMarker(
+                [31.27380190064574, 119.81645009645435],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_c59643b29b6b3c7318d4905932e1d5e0 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_834fbd571a6f08d36fd66eae38047cf0 = $(`<div id="html_834fbd571a6f08d36fd66eae38047cf0" style="width: 100.0%; height: 100.0%;"><b>利永紫砂博物馆</b><br>地址：丁山北路666号<br>行政区：宜兴市<br>电话：nan<br>开放时间：1/1-12/31 周一–周五 08:00–17:00开放；1/1-12/31 周六–周日 08:30–17:00开放；元旦节,春节,清明节,劳动节,端午节,中秋节,国庆节,除夕 08:30–17:00开放<br><span style='color:#888'>WGS84: 119.816450, 31.273802</span></div>`)[0];
+                popup_c59643b29b6b3c7318d4905932e1d5e0.setContent(html_834fbd571a6f08d36fd66eae38047cf0);
+            
+        
+
+        circle_marker_3fbc3bab179b45d2ca01f2a5d14c0980.bindPopup(popup_c59643b29b6b3c7318d4905932e1d5e0)
+        ;
+
+        
+    
+    
+            circle_marker_3fbc3bab179b45d2ca01f2a5d14c0980.bindTooltip(
+                `<div>
+                     利永紫砂博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa4e01f41a335ae9e4fdb2482564d93d = L.circleMarker(
+                [31.36451287922155, 119.81685237635938],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_d4b781f799f2a31606217c018139140e = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_5e05bfaedc991cdc887c606d27f70a5c = $(`<div id="html_5e05bfaedc991cdc887c606d27f70a5c" style="width: 100.0%; height: 100.0%;"><b>宜兴碑刻博物馆</b><br>地址：东庙巷187号<br>行政区：宜兴市<br>电话：nan<br>开放时间：周二至周日 08:30-11:00,13:30-17:00<br><span style='color:#888'>WGS84: 119.816852, 31.364513</span></div>`)[0];
+                popup_d4b781f799f2a31606217c018139140e.setContent(html_5e05bfaedc991cdc887c606d27f70a5c);
+            
+        
+
+        circle_marker_fa4e01f41a335ae9e4fdb2482564d93d.bindPopup(popup_d4b781f799f2a31606217c018139140e)
+        ;
+
+        
+    
+    
+            circle_marker_fa4e01f41a335ae9e4fdb2482564d93d.bindTooltip(
+                `<div>
+                     宜兴碑刻博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e9df18fcb86252d877122dd37f66ff6d = L.circleMarker(
+                [31.30262141246879, 119.8282994119958],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_a7ef0a4831496e7a6fef5035ef484b8f = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_c91d8759bd460c845c38899e86be95c6 = $(`<div id="html_c91d8759bd460c845c38899e86be95c6" style="width: 100.0%; height: 100.0%;"><b>宜兴市美术陶瓷博物馆</b><br>地址：美术陶瓷博物馆(陶都路东)<br>行政区：宜兴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 119.828299, 31.302621</span></div>`)[0];
+                popup_a7ef0a4831496e7a6fef5035ef484b8f.setContent(html_c91d8759bd460c845c38899e86be95c6);
+            
+        
+
+        circle_marker_e9df18fcb86252d877122dd37f66ff6d.bindPopup(popup_a7ef0a4831496e7a6fef5035ef484b8f)
+        ;
+
+        
+    
+    
+            circle_marker_e9df18fcb86252d877122dd37f66ff6d.bindTooltip(
+                `<div>
+                     宜兴市美术陶瓷博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3fa120523b854f6527296e837f872242 = L.circleMarker(
+                [31.30276314694095, 119.82818706003458],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_13218686ffce784100301e02f94f7adf = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_fb3b8553945943d86822bc2ef0a9c598 = $(`<div id="html_fb3b8553945943d86822bc2ef0a9c598" style="width: 100.0%; height: 100.0%;"><b>陶乐源美陶博物馆</b><br>地址：丁蜀镇陶都路洛涧村陶都电力器件老厂<br>行政区：宜兴市<br>电话：nan<br>开放时间：09:00-17:00<br><span style='color:#888'>WGS84: 119.828187, 31.302763</span></div>`)[0];
+                popup_13218686ffce784100301e02f94f7adf.setContent(html_fb3b8553945943d86822bc2ef0a9c598);
+            
+        
+
+        circle_marker_3fa120523b854f6527296e837f872242.bindPopup(popup_13218686ffce784100301e02f94f7adf)
+        ;
+
+        
+    
+    
+            circle_marker_3fa120523b854f6527296e837f872242.bindTooltip(
+                `<div>
+                     陶乐源美陶博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ac7eb6dca3dba190d034ffb8da211db5 = L.circleMarker(
+                [31.26090753300454, 119.82717965284449],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_d4e6485b2f2b2ac4d5b43012a108bf02 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d82116017b0860e9be61303ae9ba3d92 = $(`<div id="html_d82116017b0860e9be61303ae9ba3d92" style="width: 100.0%; height: 100.0%;"><b>丁蜀镇博物馆</b><br>地址：丁山北路与紫砂路交叉口南140米<br>行政区：宜兴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 119.827180, 31.260908</span></div>`)[0];
+                popup_d4e6485b2f2b2ac4d5b43012a108bf02.setContent(html_d82116017b0860e9be61303ae9ba3d92);
+            
+        
+
+        circle_marker_ac7eb6dca3dba190d034ffb8da211db5.bindPopup(popup_d4e6485b2f2b2ac4d5b43012a108bf02)
+        ;
+
+        
+    
+    
+            circle_marker_ac7eb6dca3dba190d034ffb8da211db5.bindTooltip(
+                `<div>
+                     丁蜀镇博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bcc18b13f83a324fcd475f8a70576ed3 = L.circleMarker(
+                [31.24405874026072, 119.83790119751816],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_09f01b7e7962b1e7f03bad3b02dded45 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_642a5b3bb59142ced220aba0ffc63661 = $(`<div id="html_642a5b3bb59142ced220aba0ffc63661" style="width: 100.0%; height: 100.0%;"><b>宜兴陶文化博物馆(诚斋)</b><br>地址：丁蜀镇丁山路汤蜀路路口东南侧<br>行政区：宜兴市<br>电话：13771388815<br>开放时间：nan<br><span style='color:#888'>WGS84: 119.837901, 31.244059</span></div>`)[0];
+                popup_09f01b7e7962b1e7f03bad3b02dded45.setContent(html_642a5b3bb59142ced220aba0ffc63661);
+            
+        
+
+        circle_marker_bcc18b13f83a324fcd475f8a70576ed3.bindPopup(popup_09f01b7e7962b1e7f03bad3b02dded45)
+        ;
+
+        
+    
+    
+            circle_marker_bcc18b13f83a324fcd475f8a70576ed3.bindTooltip(
+                `<div>
+                     宜兴陶文化博物馆(诚斋)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6279ebee415982fd80e622e373f25bbc = L.circleMarker(
+                [31.284707735642698, 119.84042004982288],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_b98bf470b0446e30b25a6121f356a666 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_61a988b8da3920701855eca2fa4747ba = $(`<div id="html_61a988b8da3920701855eca2fa4747ba" style="width: 100.0%; height: 100.0%;"><b>紫泥春华博物馆</b><br>地址：丁蜀镇通蠡中路11号海科企业内<br>行政区：宜兴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 119.840420, 31.284708</span></div>`)[0];
+                popup_b98bf470b0446e30b25a6121f356a666.setContent(html_61a988b8da3920701855eca2fa4747ba);
+            
+        
+
+        circle_marker_6279ebee415982fd80e622e373f25bbc.bindPopup(popup_b98bf470b0446e30b25a6121f356a666)
+        ;
+
+        
+    
+    
+            circle_marker_6279ebee415982fd80e622e373f25bbc.bindTooltip(
+                `<div>
+                     紫泥春华博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a7099e78692fdd71058789582ddfc00 = L.circleMarker(
+                [31.359860028321297, 119.774598961399],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_294a767c1e3b0acfbcbad788271ced56 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_c51e230e8483f680a1d8cb291ef7bcc5 = $(`<div id="html_c51e230e8483f680a1d8cb291ef7bcc5" style="width: 100.0%; height: 100.0%;"><b>凌志装备知识产权博物馆</b><br>地址：龙池路与茶泉路交叉口东南260米<br>行政区：宜兴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 119.774599, 31.359860</span></div>`)[0];
+                popup_294a767c1e3b0acfbcbad788271ced56.setContent(html_c51e230e8483f680a1d8cb291ef7bcc5);
+            
+        
+
+        circle_marker_1a7099e78692fdd71058789582ddfc00.bindPopup(popup_294a767c1e3b0acfbcbad788271ced56)
+        ;
+
+        
+    
+    
+            circle_marker_1a7099e78692fdd71058789582ddfc00.bindTooltip(
+                `<div>
+                     凌志装备知识产权博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2be7799a34f8e9bc2b966a7eccf3aaaa = L.circleMarker(
+                [31.24504772033484, 119.57789718285964],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_8792e64ba4199d4458492145d4d69f76 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_07ec113f63f9ee4079c5a495cca24202 = $(`<div id="html_07ec113f63f9ee4079c5a495cca24202" style="width: 100.0%; height: 100.0%;"><b>阳羡茶文化博物馆(江苏云湖国际会议中心北)</b><br>地址：西渚镇横山村香林路3号<br>行政区：宜兴市<br>电话：0510-87377377<br>开放时间：08:00-17:00<br><span style='color:#888'>WGS84: 119.577897, 31.245048</span></div>`)[0];
+                popup_8792e64ba4199d4458492145d4d69f76.setContent(html_07ec113f63f9ee4079c5a495cca24202);
+            
+        
+
+        circle_marker_2be7799a34f8e9bc2b966a7eccf3aaaa.bindPopup(popup_8792e64ba4199d4458492145d4d69f76)
+        ;
+
+        
+    
+    
+            circle_marker_2be7799a34f8e9bc2b966a7eccf3aaaa.bindTooltip(
+                `<div>
+                     阳羡茶文化博物馆(江苏云湖国际会议中心北)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b358befc31b31289658c89ac6ee13d5 = L.circleMarker(
+                [31.2825244252138, 119.833112644625],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_b62c08d43c3c3953bd16817bcd555a90 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_845a8bc4123e0750c99f375e2bccd211 = $(`<div id="html_845a8bc4123e0750c99f375e2bccd211" style="width: 100.0%; height: 100.0%;"><b>董彩芬紫砂艺术馆</b><br>地址：紫砂村川埠中路426号董彩芬紫砂艺术馆<br>行政区：宜兴市<br>电话：13682265859<br>开放时间：07:00-21:00<br><span style='color:#888'>WGS84: 119.833113, 31.282524</span></div>`)[0];
+                popup_b62c08d43c3c3953bd16817bcd555a90.setContent(html_845a8bc4123e0750c99f375e2bccd211);
+            
+        
+
+        circle_marker_9b358befc31b31289658c89ac6ee13d5.bindPopup(popup_b62c08d43c3c3953bd16817bcd555a90)
+        ;
+
+        
+    
+    
+            circle_marker_9b358befc31b31289658c89ac6ee13d5.bindTooltip(
+                `<div>
+                     董彩芬紫砂艺术馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f9dd17aaa927307db95231f6a94e2e70 = L.circleMarker(
+                [31.34720085017713, 119.77420829979503],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_b922bc30bec2fdb7188e2d3c625dc0e3 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_0697f17a04db3cc2df93bdd23815613a = $(`<div id="html_0697f17a04db3cc2df93bdd23815613a" style="width: 100.0%; height: 100.0%;"><b>宜兴周处文化博物馆</b><br>地址：氿龙国际<br>行政区：宜兴市<br>电话：0510-80785777<br>开放时间：09:00-20:00<br><span style='color:#888'>WGS84: 119.774208, 31.347201</span></div>`)[0];
+                popup_b922bc30bec2fdb7188e2d3c625dc0e3.setContent(html_0697f17a04db3cc2df93bdd23815613a);
+            
+        
+
+        circle_marker_f9dd17aaa927307db95231f6a94e2e70.bindPopup(popup_b922bc30bec2fdb7188e2d3c625dc0e3)
+        ;
+
+        
+    
+    
+            circle_marker_f9dd17aaa927307db95231f6a94e2e70.bindTooltip(
+                `<div>
+                     宜兴周处文化博物馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_158d8c21cd29da442317f50e4602033b = L.circleMarker(
+                [31.267776117049415, 119.8559082527693],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_580a6221cf65146bbe9a9f602765bb2d = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_637022045888b4aedb2089781b0c0f61 = $(`<div id="html_637022045888b4aedb2089781b0c0f61" style="width: 100.0%; height: 100.0%;"><b>风音堂</b><br>地址：中国宜兴紫砂博物馆<br>行政区：宜兴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 119.855908, 31.267776</span></div>`)[0];
+                popup_580a6221cf65146bbe9a9f602765bb2d.setContent(html_637022045888b4aedb2089781b0c0f61);
+            
+        
+
+        circle_marker_158d8c21cd29da442317f50e4602033b.bindPopup(popup_580a6221cf65146bbe9a9f602765bb2d)
+        ;
+
+        
+    
+    
+            circle_marker_158d8c21cd29da442317f50e4602033b.bindTooltip(
+                `<div>
+                     风音堂
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7e4ef0e518b73d2329da25ea344c1bcc = L.circleMarker(
+                [31.250870756692766, 119.72722369429688],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_edb337b8cbcb3c83f2754c2d949751d1 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_152b1e2f130aa50cd52bf7ea57295a85 = $(`<div id="html_152b1e2f130aa50cd52bf7ea57295a85" style="width: 100.0%; height: 100.0%;"><b>石炭纪节肢动物科普馆</b><br>地址：丁张公路与312县道交叉口东400米<br>行政区：宜兴市<br>电话：nan<br>开放时间：nan<br><span style='color:#888'>WGS84: 119.727224, 31.250871</span></div>`)[0];
+                popup_edb337b8cbcb3c83f2754c2d949751d1.setContent(html_152b1e2f130aa50cd52bf7ea57295a85);
+            
+        
+
+        circle_marker_7e4ef0e518b73d2329da25ea344c1bcc.bindPopup(popup_edb337b8cbcb3c83f2754c2d949751d1)
+        ;
+
+        
+    
+    
+            circle_marker_7e4ef0e518b73d2329da25ea344c1bcc.bindTooltip(
+                `<div>
+                     石炭纪节肢动物科普馆
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d4bf9fa0c6eeab4269ad587c3bc4990 = L.circleMarker(
+                [31.25193345017091, 119.84197940223554],
+                {"bubblingMouseEvents": true, "color": "#f781bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f781bf", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_786c81eb3039b09600f837760ec8f9d9);
+        
+    
+        var popup_6ea5063df66efd9183c1516dcadd4a22 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_fef225d23d7c670efb94300af7d19df9 = $(`<div id="html_fef225d23d7c670efb94300af7d19df9" style="width: 100.0%; height: 100.0%;"><b>民族馆(暂停营业)</b><br>地址：金碧苑东南门南70米<br>行政区：宜兴市<br>电话：18761567717<br>开放时间：08:00-16:00<br><span style='color:#888'>WGS84: 119.841979, 31.251933</span></div>`)[0];
+                popup_6ea5063df66efd9183c1516dcadd4a22.setContent(html_fef225d23d7c670efb94300af7d19df9);
+            
+        
+
+        circle_marker_5d4bf9fa0c6eeab4269ad587c3bc4990.bindPopup(popup_6ea5063df66efd9183c1516dcadd4a22)
+        ;
+
+        
+    
+    
+            circle_marker_5d4bf9fa0c6eeab4269ad587c3bc4990.bindTooltip(
+                `<div>
+                     民族馆(暂停营业)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

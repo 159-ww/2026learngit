@@ -1,0 +1,9 @@
+requests
+python-dotenv
+pandas
+numpy
+geopandas
+matplotlib
+pyproj
+shapely
+contextily

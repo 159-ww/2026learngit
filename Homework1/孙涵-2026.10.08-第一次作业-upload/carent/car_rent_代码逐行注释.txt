@@ -1,0 +1,256 @@
+南京租车 POI 空间分析：car_rent.ipynb 代码逐行注释稿
+========================================================
+
+说明：以下内容对应 car_rent.ipynb 的全部代码单元。为避免泄露，原 Notebook
+中硬编码的高德与 CARTO Key 已替换为占位符；实际运行请用环境变量或安全输入。
+
+────────────────────────────────────────────────────────
+单元 1：创建虚拟环境并安装依赖
+────────────────────────────────────────────────────────
+%%bash                                      # 令此 Jupyter 单元使用 Bash shell 执行。
+set -euo pipefail                           # 命令出错、未定义变量或管道失败时立即停止。
+python3 -m venv .venv                       # 在当前目录创建名为 .venv 的隔离 Python 环境。
+./.venv/bin/python -m pip install --upgrade pip  # 更新虚拟环境内的 pip。
+./.venv/bin/python -m pip install --only-binary=:all: --prefer-binary -r requirements.txt
+                                             # 从 requirements.txt 安装依赖；只用预编译 wheel，避免本地编译。
+./.venv/bin/python -m ipykernel install --user --name nanjing-car-rental --display-name 'Python (Nanjing Car Rental)'
+                                             # 注册 Jupyter 内核，以便 Notebook 使用这个虚拟环境。
+echo '环境已创建。请切换 Jupyter 内核至 Python (Nanjing Car Rental)，然后重启内核。'
+                                             # 显示下一步操作提示。
+
+────────────────────────────────────────────────────────
+单元 3：设置 API Key（原 Key 已脱敏）
+────────────────────────────────────────────────────────
+import os                                   # 导入 os，用于读取或设置环境变量。
+os.environ['AMAP_WEB_SERVICE_KEY'] = '<你的高德 Web 服务 Key>'
+                                             # 将高德 Key 放入当前内核环境变量；实际建议用安全输入代替硬编码。
+os.environ['CARTO_API_KEY'] = '<你的 CARTO Basemaps Key>'
+                                             # 将 CARTO 栅格底图 Key 放入当前内核环境变量。
+if os.getenv('AMAP_WEB_SERVICE_KEY') and os.getenv('CARTO_API_KEY'):
+                                             # 同时读取两个变量，并判断两者是否都非空。
+    print('AMAP_WEB_SERVICE_KEY 和 CARTO_API_KEY 已设置。')
+                                             # 两者均存在时提示设置成功。
+else:                                        # 任一变量为空时执行此分支。
+    print('No Avaliable API Keys')           # 提示没有可用 Key。
+
+────────────────────────────────────────────────────────
+单元 6：确认当前 Jupyter 内核
+────────────────────────────────────────────────────────
+import sys                                  # 导入 sys，用于访问当前 Python 解释器信息。
+print('当前内核：', sys.executable)          # 打印当前内核所使用的 Python 路径。
+
+────────────────────────────────────────────────────────
+单元 7：导入库、配置路径、封装高德检索函数
+────────────────────────────────────────────────────────
+from __future__ import annotations           # 延迟解析类型注解，改善新旧 Python 类型兼容性。
+import json, math, os, time                  # 导入 JSON、数学、环境变量和等待工具。
+from pathlib import Path                     # 导入面向对象的文件路径工具。
+import folium, matplotlib.pyplot as plt, numpy as np, pandas as pd, requests
+                                             # 分别导入地图、绘图、数值计算、表格处理和 HTTP 请求库。
+from folium.plugins import HeatMap, MarkerCluster
+                                             # 导入 Folium 热力图和点聚合插件。
+from pyproj import Transformer               # 导入坐标参考系转换器。
+from sklearn.cluster import DBSCAN           # 导入 DBSCAN 空间密度聚类模型。
+
+BASE=Path.cwd(); DATA=BASE/'data'; OUT=BASE/'analysis'; DATA.mkdir(exist_ok=True); OUT.mkdir(exist_ok=True)
+                                             # 取当前目录；定义 data/、analysis/，并在不存在时创建。
+KEY=os.getenv('AMAP_WEB_SERVICE_KEY',''); CARTO_API_KEY=os.getenv('CARTO_API_KEY',''); API='https://restapi.amap.com/v3/place/text'; CITY='320100'
+                                             # 读取两个 Key；定义高德文本搜索接口和南京 adcode。
+CARTO_TILE_URL=os.getenv('CARTO_TILE_URL','https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key={api_key}')
+                                             # 读取可覆盖的 CARTO 瓦片 URL；默认使用 Voyager Raster URL。
+REQUEST_INTERVAL_SECONDS = 3.0               # 每次高德请求后的固定等待秒数，用于降低 QPS 超限风险。
+if not KEY: print('请先设置 AMAP_WEB_SERVICE_KEY 并重启内核。')
+                                             # 未找到高德 Key 时仅提示，实际调用函数时会抛出错误。
+
+def amap(keyword, types=''):                 # 定义按关键字和可选 POI 类别搜索南京 POI 的函数。
+    if not KEY: raise ValueError('缺少 AMAP_WEB_SERVICE_KEY。')
+                                             # 防止未设置 Key 时发出无效请求。
+    result=[]                                # 初始化用于累积所有页面 POI 的列表。
+    for page in range(1,9):                  # 依次请求第 1 至第 8 页，最多 200 条结果。
+        p={'key':KEY,'keywords':keyword,'city':CITY,'citylimit':'true','offset':25,'page':page,'extensions':'base','output':'JSON'}
+                                             # 构造 API 参数：南京限定、每页 25 条、返回 JSON。
+        if types: p['types']=types           # 有类别代码时加入 types，例如 010900 表示汽车租赁。
+        for attempt in range(10):            # 对同一页最多尝试 10 次，处理 QPS 限流。
+            r=requests.get(API,params=p,timeout=25); r.raise_for_status(); body=r.json()
+                                             # 发起 GET 请求；HTTP 异常立即报错；将响应解析为字典。
+            if body.get('status')=='1': break # 高德 status=1 表示成功，退出重试循环。
+            if str(body.get('infocode'))=='10021' and attempt < 9:
+                                             # 错误 10021 表示账号级 QPS 超限，且仍可继续重试。
+                wait=min(60, 5*(attempt+1)); print(f'高德账号级 QPS 限流，{wait} 秒后重试（第 {attempt+1}/10 次）…'); time.sleep(wait); continue
+                                             # 逐次增加等待时间，最长 60 秒，然后重试。
+            raise RuntimeError(f"高德 API：{body.get('info')} ({body.get('infocode')})。当前账号地点搜索 QPS 持续超限，请停止其他请求或在高德控制台提升 QPS。")
+                                             # 非可重试错误或重试耗尽时终止并说明原因。
+        pois=body.get('pois',[]); result.extend(pois)
+                                             # 取出本页 POI，并追加到总结果列表。
+        if len(pois)<25: break               # 本页不足 25 条表示到达最后一页，停止分页。
+        time.sleep(REQUEST_INTERVAL_SECONDS) # 页面之间暂停 3 秒，避免超出 API 请求频率。
+    return result                            # 返回该关键词全部已获取的原始 POI 字典。
+
+def tidy(items):                             # 定义原始 POI 列表转为规范 DataFrame 的函数。
+    rows=[]                                  # 初始化标准化记录列表。
+    for p in items:                          # 遍历每条高德 POI 原始字典。
+        try: lon,lat=map(float,p['location'].split(','))
+                                             # 将 "经度,纬度" 字符串拆分并转为浮点数。
+        except (KeyError,ValueError): continue # 缺少或损坏 location 的 POI 被跳过。
+        rows.append({'id':p.get('id',''),'name':p.get('name',''),'address':p.get('address',''),'adname':p.get('adname',''),'longitude':lon,'latitude':lat})
+                                             # 仅保留分析所需的 ID、名称、地址、区县和坐标字段。
+    return pd.DataFrame(rows).drop_duplicates('id')
+                                             # 转为表格并按高德唯一 POI ID 去重。
+
+────────────────────────────────────────────────────────
+单元 8：下载或读取南京租车 POI
+────────────────────────────────────────────────────────
+poi_file=DATA/'nanjing_car_rental_pois.csv'  # 设定原始租车 POI CSV 的缓存路径。
+if poi_file.exists(): rentals_raw=pd.read_csv(poi_file)
+                                             # CSV 已存在时直接读取，避免再次消耗高德额度。
+else:                                        # 缓存不存在时执行下载。
+    words=['租车','汽车租赁','神州租车','一嗨租车','悟空租车','联动云租车']
+                                             # 定义通用词和品牌词，提高租车 POI 覆盖率。
+    rentals_raw=tidy([p for w in words for p in amap(w,'010900')]); rentals_raw.to_csv(poi_file,index=False,encoding='utf-8-sig')
+                                             # 搜索各关键词、规范化与去重，再以 Excel 友好的 UTF-8-SIG 保存。
+print('租车 POI：',len(rentals_raw)); rentals_raw.head()
+                                             # 打印 POI 数量，并显示前五条记录。
+
+────────────────────────────────────────────────────────
+单元 10：GCJ-02 转 WGS84，再投影到 UTM 50N
+────────────────────────────────────────────────────────
+PI=math.pi; A=6378245.; EE=.00669342162296594323
+                                             # 定义 GCJ-02 偏移公式所需的圆周率、椭球长半轴和偏心率平方。
+def outside(x,y): return not(72.004<=x<=137.8347 and .8293<=y<=55.8271)
+                                             # 判断经纬度是否位于中国 GCJ-02 偏移适用范围之外。
+def tlat(x,y): return -100+2*x+3*y+.2*y*y+.1*x*y+.2*math.sqrt(abs(x))+(20*math.sin(6*x*PI)+20*math.sin(2*x*PI))*2/3+(20*math.sin(y*PI)+40*math.sin(y*PI/3))*2/3+(160*math.sin(y*PI/12)+320*math.sin(y*PI/30))*2/3
+                                             # GCJ-02 公式中的纬度偏移量计算函数。
+def tlon(x,y): return 300+x+2*y+.1*x*x+.1*x*y+.1*math.sqrt(abs(x))+(20*math.sin(6*x*PI)+20*math.sin(2*x*PI))*2/3+(20*math.sin(x*PI)+40*math.sin(x*PI/3))*2/3+(150*math.sin(x*PI/12)+300*math.sin(x*PI/30))*2/3
+                                             # GCJ-02 公式中的经度偏移量计算函数。
+def wgs2gcj(x,y):                            # 定义 WGS84 转 GCJ-02 的正向函数，供反算迭代使用。
+    if outside(x,y): return x,y              # 中国境外不需要偏移，直接原样返回。
+    a,b=tlat(x-105,y-35),tlon(x-105,y-35); r=y*PI/180; m=1-EE*math.sin(r)**2; s=math.sqrt(m)
+                                             # 计算纬经偏移及椭球辅助变量。
+    return x+b*180/(A/s*math.cos(r)*PI),y+a*180/(A*(1-EE)/(m*s)*PI)
+                                             # 返回加上偏移后的 GCJ-02 经纬度。
+def gcj2wgs(x,y):                            # 定义 GCJ-02 反算 WGS84 的迭代函数。
+    ox,oy=x,y                                # 保存原始 GCJ-02 坐标作为迭代目标。
+    for _ in range(2):                       # 执行两轮校正，平衡精度和计算量。
+        gx,gy=wgs2gcj(x,y); x,y=x+ox-gx,y+oy-gy
+                                             # 以正向转换误差修正当前 WGS84 估计值。
+    return x,y                               # 返回近似 WGS84 经纬度。
+utm=Transformer.from_crs('EPSG:4326','EPSG:32650',always_xy=True)
+                                             # 创建 WGS84 到 UTM 50N 的转换器；南京位于 50N 带。
+def project(df):                             # 定义对一个 POI 表统一添加坐标列的函数。
+    z=df.copy(); z[['longitude_gcj02','latitude_gcj02']]=z[['longitude','latitude']].astype(float)
+                                             # 复制数据并保存原始高德 GCJ-02 经纬度。
+    w=z.apply(lambda r: gcj2wgs(r.longitude_gcj02,r.latitude_gcj02),axis=1,result_type='expand'); z[['longitude_wgs84','latitude_wgs84']]=w
+                                             # 对每行反算 WGS84，并写入两个新字段。
+    z['x_utm_m'],z['y_utm_m']=utm.transform(z.longitude_wgs84.to_numpy(),z.latitude_wgs84.to_numpy()); return z
+                                             # 将 WGS84 转为以米为单位的 UTM 坐标，然后返回结果表。
+rentals=project(rentals_raw)                 # 对租车 POI 执行完整坐标转换。
+assert rentals.longitude_gcj02.between(118,120).all() and rentals.latitude_gcj02.between(31,33).all(),'原始坐标不在南京范围'
+                                             # 校验原始点均在南京的大致经纬度范围内。
+assert rentals.x_utm_m.between(500000,800000).all() and rentals.y_utm_m.between(3300000,3700000).all(),'UTM 投影异常'
+                                             # 校验投影坐标数量级合理，防止用错 UTM 带或坐标列。
+display(rentals[['name','longitude_gcj02','latitude_gcj02','longitude_wgs84','latitude_wgs84','x_utm_m','y_utm_m']].head())
+                                             # 显示转换后的前五条记录，便于人工核查。
+
+────────────────────────────────────────────────────────
+单元 11：高铁、地铁、禄口机场距离与同业密度
+────────────────────────────────────────────────────────
+names=['南京南站','南京站','江宁站','溧水站','仙林站'] # 设定铁路站主 POI 名称。
+h0=tidy([p for n in names for p in amap(n)])             # 搜索这些名称并标准化结果。
+hsr=pd.concat([h0[h0.name.eq(n)].head(1) for n in names],ignore_index=True).dropna(how='all')
+                                                       # 每个站只留名称精确匹配的首条主 POI。
+metro=tidy(amap('','150500')); metro=metro if not metro.empty else tidy(amap('地铁站'))
+                                                       # 先按地铁类型代码检索；为空则以文字“地铁站”兜底。
+airport_candidates=tidy(amap('南京禄口国际机场'))      # 下载禄口机场相关 POI。
+airport=airport_candidates[airport_candidates.name.eq('南京禄口国际机场')].head(1)
+                                                       # 优先选名称精确匹配的机场主 POI。
+if airport.empty: airport=airport_candidates.head(1)  # 没有精确结果时取第一条作为兜底。
+if airport.empty: raise RuntimeError('未查询到南京禄口国际机场 POI。')
+                                                       # 无任何机场结果时停止，避免错误计算。
+hsr,metro,airport=project(hsr),project(metro),project(airport)
+                                                       # 将三类参考点统一转换到 WGS84 与 UTM 50N。
+def nearest(a,b):                                      # 定义“每个 a 点到 b 点集合的最近距离”函数。
+    d=np.hypot(a.x_utm_m.to_numpy()[:,None]-b.x_utm_m.to_numpy()[None,:],a.y_utm_m.to_numpy()[:,None]-b.y_utm_m.to_numpy()[None,:])
+                                                       # 广播计算所有点对的 UTM 平面欧氏距离（米）。
+    i=d.argmin(1); return d[np.arange(len(a)),i],i     # 返回每点最短距离及对应参考点索引。
+d,i=nearest(rentals,hsr); rentals['nearest_hsr_km']=d/1000; rentals['nearest_hsr_name']=hsr.iloc[i]['name'].to_numpy()
+                                                       # 写入最近铁路站名称与距离（km）。
+d,i=nearest(rentals,metro); rentals['nearest_metro_km']=d/1000; rentals['nearest_metro_name']=metro.iloc[i]['name'].to_numpy()
+                                                       # 写入最近地铁站名称与距离（km）。
+d,i=nearest(rentals,airport); rentals['nearest_lukou_airport_km']=d/1000; rentals['nearest_lukou_airport_name']=airport.iloc[i]['name'].to_numpy()
+                                                       # 写入距禄口机场距离（km）。
+transport_hubs=pd.concat([hsr,airport],ignore_index=True) # 合并铁路站与机场为综合枢纽。
+d,i=nearest(rentals,transport_hubs); rentals['nearest_hsr_rail_airport_km']=d/1000; rentals['nearest_hsr_rail_airport_name']=transport_hubs.iloc[i]['name'].to_numpy()
+                                                       # 计算最近综合交通枢纽距离及名称。
+airport_5km=rentals[rentals.nearest_lukou_airport_km<=5].copy()
+                                                       # 筛选机场 5km 直线范围内的租车点。
+print(f'示例:禄口机场 5 km 直线范围内租车点：{len(airport_5km)} 个；最近点距离：{rentals.nearest_lukou_airport_km.min():.2f} km')
+                                                       # 输出机场附近供给数量和最近距离。
+display(airport_5km[['name','address','nearest_lukou_airport_km']].sort_values('nearest_lukou_airport_km'))
+                                                       # 以距离升序显示机场附近租车点。
+d=np.hypot(rentals.x_utm_m.to_numpy()[:,None]-rentals.x_utm_m.to_numpy()[None,:],rentals.y_utm_m.to_numpy()[:,None]-rentals.y_utm_m.to_numpy()[None,:]); np.fill_diagonal(d,np.inf)
+                                                       # 计算租车点两两距离，并将自身距离改为无穷大。
+rentals['nearest_rental_km']=d.min(1)/1000; rentals['other_rentals_within_3km']=(d<=3000).sum(1)
+                                                       # 写入最近同业距离和 3km 内其他租车点数量。
+
+────────────────────────────────────────────────────────
+单元 12：Folium 交互地图（其余地图点循环同理）
+────────────────────────────────────────────────────────
+tile_url=CARTO_TILE_URL.replace('{api_key}', CARTO_API_KEY) # 把 CARTO Key 写入瓦片 URL。
+m=folium.Map([rentals.latitude_wgs84.mean(),rentals.longitude_wgs84.mean()],zoom_start=10,tiles=None)
+                                                       # 以所有租车点 WGS84 均值为中心创建空底图地图。
+folium.TileLayer(tiles=tile_url,attr='© OpenStreetMap contributors © CARTO',name='CARTO Positron',overlay=False,control=True).add_to(m)
+                                                       # 添加 CARTO Raster 瓦片底图。
+HeatMap(rentals[['latitude_wgs84','longitude_wgs84']].values.tolist(),radius=18,blur=14).add_to(m)
+                                                       # 将 WGS84 租车点绘成热力图层。
+c=MarkerCluster(name='租车行').add_to(m)                # 创建租车点聚合图层。
+for r in rentals.itertuples(): folium.CircleMarker([r.latitude_wgs84,r.longitude_wgs84],radius=5,color='#dc2626',fill=True,popup=f'{r.name}').add_to(c)
+                                                       # 遍历租车点，在地图中加入红色圆点和名称弹窗。
+m.save(OUT/'nanjing_car_rental_map.html')               # 将交互地图导出为 HTML。
+
+────────────────────────────────────────────────────────
+单元 13：四联统计图与结果保存
+────────────────────────────────────────────────────────
+plt.rcParams['font.sans-serif']=['PingFang SC','Microsoft YaHei','SimHei','Arial Unicode MS','DejaVu Sans']; plt.rcParams['axes.unicode_minus']=False
+                                                       # 配置中文字体，并确保负号正常显示。
+fig,ax=plt.subplots(2,2,figsize=(15,10),constrained_layout=True) # 创建 2×2 图框。
+rentals.adname.fillna('未标注区县').value_counts().sort_values().plot.barh(ax=ax[0,0],title='租车行按区县分布')
+                                                       # 绘制区县租车点数量横向柱状图。
+ax[0,1].hist(rentals.nearest_hsr_rail_airport_km,bins=18,color='#8b5cf6'); ax[0,1].set(title='至最近高铁/铁路站/机场距离',xlabel='km')
+                                                       # 绘制最近综合交通枢纽距离直方图。
+ax[1,0].hist(rentals.nearest_metro_km,bins=18,color='#10b981'); ax[1,0].set(title='至最近地铁站距离',xlabel='km')
+                                                       # 绘制最近地铁距离直方图。
+ax[1,1].scatter(rentals.nearest_metro_km,rentals.other_rentals_within_3km,color='#f59e0b'); ax[1,1].set(title='地铁可达性与同业密度',xlabel='至地铁 km',ylabel='3km 内其他租车行')
+                                                       # 绘制地铁距离与同业密度的散点关系。
+fig.savefig(OUT/'nanjing_car_rental_statistics.png',dpi=180); plt.show()
+                                                       # 保存 PNG 后在 Notebook 中展示。
+rentals.to_csv(OUT/'rental_poi_enriched_projected.csv',index=False,encoding='utf-8-sig')
+                                                       # 保存包含坐标、距离和密度指标的完整明细。
+
+────────────────────────────────────────────────────────
+单元 15：DBSCAN 空间聚类及底图叠加
+────────────────────────────────────────────────────────
+DBSCAN_EPS_METERS=2000; DBSCAN_MIN_SAMPLES=3             # 设定 2km 邻域、至少 3 点成簇。
+coordinates=rentals[['x_utm_m','y_utm_m']].to_numpy()    # 取米制 UTM 坐标作为聚类输入。
+rentals['spatial_cluster']=DBSCAN(eps=DBSCAN_EPS_METERS,min_samples=DBSCAN_MIN_SAMPLES).fit_predict(coordinates)
+                                                       # 执行聚类；-1 表示未归入簇的离群点。
+cluster_sizes=rentals[rentals.spatial_cluster>=0].groupby('spatial_cluster').size().sort_values(ascending=False)
+                                                       # 汇总每一个有效空间簇包含的 POI 数量。
+cluster_summary=rentals[rentals.spatial_cluster>=0].groupby('spatial_cluster').agg(poi_count=('id','size'),center_longitude_wgs84=('longitude_wgs84','mean'),center_latitude_wgs84=('latitude_wgs84','mean'),median_nearest_metro_km=('nearest_metro_km','median')).sort_values('poi_count',ascending=False).reset_index()
+                                                       # 计算各簇规模、中心点与中位地铁距离。
+noise_count=int((rentals.spatial_cluster==-1).sum())     # 统计离群点数量。
+fig,axes=plt.subplots(1,2,figsize=(15,6),constrained_layout=True) # 创建聚类散点图和簇规模图。
+labels=sorted(rentals.spatial_cluster.unique())          # 取得所有簇编号（含 -1）。
+for label in labels:                                     # 对每个簇分别绘制。
+    subset=rentals[rentals.spatial_cluster==label]       # 筛出当前簇的点。
+    axes[0].scatter(subset.x_utm_m/1000,subset.y_utm_m/1000,label=f'簇 {label}（{len(subset)}）')
+                                                       # 在 UTM 平面上绘制当前簇；坐标除 1000 以 km 显示。
+cluster_sizes.plot.bar(ax=axes[1],color='#6366f1')       # 绘制各簇租车点数量柱图。
+fig.savefig(OUT/'nanjing_car_rental_dbscan_clusters.png',dpi=180,bbox_inches='tight')
+                                                       # 保存静态 DBSCAN 图。
+cluster_summary.to_csv(OUT/'nanjing_car_rental_dbscan_cluster_summary.csv',index=False,encoding='utf-8-sig')
+                                                       # 保存每个簇的汇总表。
+cluster_map=folium.Map([rentals.latitude_wgs84.mean(),rentals.longitude_wgs84.mean()],zoom_start=10,tiles=None)
+                                                       # 创建用于叠加聚类结果的 CARTO 交互底图。
+for row in rentals.itertuples(): folium.CircleMarker([row.latitude_wgs84,row.longitude_wgs84],radius=5,color=cluster_color(row.spatial_cluster),fill=True,popup=f'{row.name}').add_to(cluster_map)
+                                                       # 每个租车点按所属簇着色并加入交互地图。
+cluster_map.save(OUT/'nanjing_car_rental_dbscan_cluster_map.html') # 保存带底图的聚类 HTML 地图。
