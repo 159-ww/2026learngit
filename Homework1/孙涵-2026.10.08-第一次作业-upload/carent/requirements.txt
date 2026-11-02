@@ -1,0 +1,12 @@
+# Python 3.13 / macOS Apple Silicon: pin to releases that publish CPython 3.13 wheels.
+# --only-binary=:all: in the installation command prevents pip from attempting a
+# Matplotlib source build (which needs ninja and fails in the reported SSL error).
+requests==2.32.3
+numpy==2.2.4
+pandas==2.2.3
+matplotlib==3.9.2
+folium==0.19.5
+pyproj==3.7.1
+scikit-learn==1.6.1
+jupyterlab==4.3.5
+ipykernel==6.29.5

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ac071fb4940aa247405e30a6722b57a6 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ac071fb4940aa247405e30a6722b57a6" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ac071fb4940aa247405e30a6722b57a6 = L.map(
+                "map_ac071fb4940aa247405e30a6722b57a6",
+                {
+                    center: [32.061093559999996, 118.7883202],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+  "subdomains": [
+"1",
+"2",
+"3",
+"4",
+],
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_25024fce43ce2bd732cccf7a676202d2 = L.tileLayer(
+                "https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn\u0026size=1\u0026scale=1\u0026style=8\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u9ad8\u5fb7\u5730\u56fe",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_25024fce43ce2bd732cccf7a676202d2.addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+            var circle_marker_6ea3c0bb8c614ecc6a1448465557c3d2 = L.circleMarker(
+                [32.054213, 118.795193],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_d939cc76cef69f20e37b4dbbb46cdf91 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eba8f20bb1a65097677df0509b5602ff = $(`<div id="html_eba8f20bb1a65097677df0509b5602ff" style="width: 100.0%; height: 100.0%;"><b>东南大学(四牌楼校区)</b><br>新街口街道四牌楼2号(鸡鸣寺地铁站6号口步行300米)<br>区划: 玄武区</div>`)[0];
+                popup_d939cc76cef69f20e37b4dbbb46cdf91.setContent(html_eba8f20bb1a65097677df0509b5602ff);
+            
+        
+
+        circle_marker_6ea3c0bb8c614ecc6a1448465557c3d2.bindPopup(popup_d939cc76cef69f20e37b4dbbb46cdf91)
+        ;
+
+        
+    
+    
+            circle_marker_6ea3c0bb8c614ecc6a1448465557c3d2.bindTooltip(
+                `<div>
+                     东南大学(四牌楼校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_748e9905d77a63dfcb86e5556350a4be = L.circleMarker(
+                [32.055153, 118.779562],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_f44fc32352f8472077c86eb751ffd783 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b6ffa9b6f1176e38506b1e925211de7 = $(`<div id="html_7b6ffa9b6f1176e38506b1e925211de7" style="width: 100.0%; height: 100.0%;"><b>南京大学(鼓楼校区)</b><br>汉口路22号<br>区划: 鼓楼区</div>`)[0];
+                popup_f44fc32352f8472077c86eb751ffd783.setContent(html_7b6ffa9b6f1176e38506b1e925211de7);
+            
+        
+
+        circle_marker_748e9905d77a63dfcb86e5556350a4be.bindPopup(popup_f44fc32352f8472077c86eb751ffd783)
+        ;
+
+        
+    
+    
+            circle_marker_748e9905d77a63dfcb86e5556350a4be.bindTooltip(
+                `<div>
+                     南京大学(鼓楼校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9cdbcea9f382bfc288d53d745f0e1337 = L.circleMarker(
+                [32.066917, 118.780339],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_7915a215021fd4cd8e79ed46152de8a9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fdf80b153e8227f6bc8fecfd53e1d9a4 = $(`<div id="html_fdf80b153e8227f6bc8fecfd53e1d9a4" style="width: 100.0%; height: 100.0%;"><b>江苏青春老年大学</b><br>云南北路77号南泰大厦F1层<br>区划: 鼓楼区</div>`)[0];
+                popup_7915a215021fd4cd8e79ed46152de8a9.setContent(html_fdf80b153e8227f6bc8fecfd53e1d9a4);
+            
+        
+
+        circle_marker_9cdbcea9f382bfc288d53d745f0e1337.bindPopup(popup_7915a215021fd4cd8e79ed46152de8a9)
+        ;
+
+        
+    
+    
+            circle_marker_9cdbcea9f382bfc288d53d745f0e1337.bindTooltip(
+                `<div>
+                     江苏青春老年大学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6bb0b603a15d671abf400b6531f8a0dd = L.circleMarker(
+                [32.070463, 118.814272],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_824c97ce551fccb9969df4b2f99fb0c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3e67b3a847d604644be5f324c3478fb5 = $(`<div id="html_3e67b3a847d604644be5f324c3478fb5" style="width: 100.0%; height: 100.0%;"><b>南京邮电大学(锁金村校区)</b><br>锁金村街道锁金村10号<br>区划: 玄武区</div>`)[0];
+                popup_824c97ce551fccb9969df4b2f99fb0c2.setContent(html_3e67b3a847d604644be5f324c3478fb5);
+            
+        
+
+        circle_marker_6bb0b603a15d671abf400b6531f8a0dd.bindPopup(popup_824c97ce551fccb9969df4b2f99fb0c2)
+        ;
+
+        
+    
+    
+            circle_marker_6bb0b603a15d671abf400b6531f8a0dd.bindTooltip(
+                `<div>
+                     南京邮电大学(锁金村校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d0851e19655ec68a3adb2ecbb3ac169 = L.circleMarker(
+                [32.07332, 118.779869],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_259da264f248016750545e9850750623 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5610a5c7256c97f42308a00d38ee5478 = $(`<div id="html_5610a5c7256c97f42308a00d38ee5478" style="width: 100.0%; height: 100.0%;"><b>中国药科大学玄武门校区</b><br>童家巷24号(玄武门地铁站2号口步行490米)<br>区划: 鼓楼区</div>`)[0];
+                popup_259da264f248016750545e9850750623.setContent(html_5610a5c7256c97f42308a00d38ee5478);
+            
+        
+
+        circle_marker_4d0851e19655ec68a3adb2ecbb3ac169.bindPopup(popup_259da264f248016750545e9850750623)
+        ;
+
+        
+    
+    
+            circle_marker_4d0851e19655ec68a3adb2ecbb3ac169.bindTooltip(
+                `<div>
+                     中国药科大学玄武门校区
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ba479dbb0de942fe7a2a9775a33572c = L.circleMarker(
+                [32.044693, 118.774162],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_ced66af32ccf7d4c8cc979da0b53ecea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_64f3798d4b9b8f6d6cc4157d04aa7f60 = $(`<div id="html_64f3798d4b9b8f6d6cc4157d04aa7f60" style="width: 100.0%; height: 100.0%;"><b>南京医科大学(五台校区)</b><br>汉中路140号(上海路地铁站2号口步行470米)<br>区划: 鼓楼区</div>`)[0];
+                popup_ced66af32ccf7d4c8cc979da0b53ecea.setContent(html_64f3798d4b9b8f6d6cc4157d04aa7f60);
+            
+        
+
+        circle_marker_4ba479dbb0de942fe7a2a9775a33572c.bindPopup(popup_ced66af32ccf7d4c8cc979da0b53ecea)
+        ;
+
+        
+    
+    
+            circle_marker_4ba479dbb0de942fe7a2a9775a33572c.bindTooltip(
+                `<div>
+                     南京医科大学(五台校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed5b912dfd977b6f5b744cd8b332b8eb = L.circleMarker(
+                [32.053187, 118.76768],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_7d864cc39488f530f2113f4d001ccfaa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1189e70189e6cc3741e81f2a89abff0a = $(`<div id="html_1189e70189e6cc3741e81f2a89abff0a" style="width: 100.0%; height: 100.0%;"><b>南京师范大学(随园校区)</b><br>华侨路街道宁海路街道宁海路122号<br>区划: 鼓楼区</div>`)[0];
+                popup_7d864cc39488f530f2113f4d001ccfaa.setContent(html_1189e70189e6cc3741e81f2a89abff0a);
+            
+        
+
+        circle_marker_ed5b912dfd977b6f5b744cd8b332b8eb.bindPopup(popup_7d864cc39488f530f2113f4d001ccfaa)
+        ;
+
+        
+    
+    
+            circle_marker_ed5b912dfd977b6f5b744cd8b332b8eb.bindTooltip(
+                `<div>
+                     南京师范大学(随园校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d73fac6b96b1334032abe886c8d69e9f = L.circleMarker(
+                [32.074858, 118.776028],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_4e225d20f30fa25b852d985787f4cc61 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_757d60792943ec4b3988c2da36b4363a = $(`<div id="html_757d60792943ec4b3988c2da36b4363a" style="width: 100.0%; height: 100.0%;"><b>东南大学(丁家桥校区)</b><br>丁家桥87号<br>区划: 鼓楼区</div>`)[0];
+                popup_4e225d20f30fa25b852d985787f4cc61.setContent(html_757d60792943ec4b3988c2da36b4363a);
+            
+        
+
+        circle_marker_d73fac6b96b1334032abe886c8d69e9f.bindPopup(popup_4e225d20f30fa25b852d985787f4cc61)
+        ;
+
+        
+    
+    
+            circle_marker_d73fac6b96b1334032abe886c8d69e9f.bindTooltip(
+                `<div>
+                     东南大学(丁家桥校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c46fec6c3146f38e98f0eb622606cc4c = L.circleMarker(
+                [32.078892, 118.816969],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_51e304c2d1397a084780bdb8caabaf8d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_950772e22466b50560ce34cfa831d695 = $(`<div id="html_950772e22466b50560ce34cfa831d695" style="width: 100.0%; height: 100.0%;"><b>南京林业大学(新庄校区)</b><br>龙蟠路159号<br>区划: 玄武区</div>`)[0];
+                popup_51e304c2d1397a084780bdb8caabaf8d.setContent(html_950772e22466b50560ce34cfa831d695);
+            
+        
+
+        circle_marker_c46fec6c3146f38e98f0eb622606cc4c.bindPopup(popup_51e304c2d1397a084780bdb8caabaf8d)
+        ;
+
+        
+    
+    
+            circle_marker_c46fec6c3146f38e98f0eb622606cc4c.bindTooltip(
+                `<div>
+                     南京林业大学(新庄校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f61474fc002d3420629fe83c4e1d79e = L.circleMarker(
+                [32.072165, 118.820762],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_2ce2a3ca2bd07cda63f7a248459e5ffe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c31a02e23f3fb1fa4d71f43796da8b39 = $(`<div id="html_c31a02e23f3fb1fa4d71f43796da8b39" style="width: 100.0%; height: 100.0%;"><b>南京师范大学(紫金校区)</b><br>板仓街145号<br>区划: 玄武区</div>`)[0];
+                popup_2ce2a3ca2bd07cda63f7a248459e5ffe.setContent(html_c31a02e23f3fb1fa4d71f43796da8b39);
+            
+        
+
+        circle_marker_3f61474fc002d3420629fe83c4e1d79e.bindPopup(popup_2ce2a3ca2bd07cda63f7a248459e5ffe)
+        ;
+
+        
+    
+    
+            circle_marker_3f61474fc002d3420629fe83c4e1d79e.bindTooltip(
+                `<div>
+                     南京师范大学(紫金校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e4d507c52ed64009e796dbe3d932fa1 = L.circleMarker(
+                [32.078737, 118.775533],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_1eb39bb6f314703c9b1d1805528a1708 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b9638ee9676df426128cafebf22e1bad = $(`<div id="html_b9638ee9676df426128cafebf22e1bad" style="width: 100.0%; height: 100.0%;"><b>南京工业大学(丁家桥校区)</b><br>新模范马路30号<br>区划: 鼓楼区</div>`)[0];
+                popup_1eb39bb6f314703c9b1d1805528a1708.setContent(html_b9638ee9676df426128cafebf22e1bad);
+            
+        
+
+        circle_marker_0e4d507c52ed64009e796dbe3d932fa1.bindPopup(popup_1eb39bb6f314703c9b1d1805528a1708)
+        ;
+
+        
+    
+    
+            circle_marker_0e4d507c52ed64009e796dbe3d932fa1.bindTooltip(
+                `<div>
+                     南京工业大学(丁家桥校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e62435ea48e8cc4564f4c2dd685ab366 = L.circleMarker(
+                [32.051575, 118.821592],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_9cd77203335205e1d8bbab59239e0a60 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7db279544ba9691ba40690d39cb09a2 = $(`<div id="html_a7db279544ba9691ba40690d39cb09a2" style="width: 100.0%; height: 100.0%;"><b>玄武开放大学</b><br>富贵山6号5栋<br>区划: 玄武区</div>`)[0];
+                popup_9cd77203335205e1d8bbab59239e0a60.setContent(html_a7db279544ba9691ba40690d39cb09a2);
+            
+        
+
+        circle_marker_e62435ea48e8cc4564f4c2dd685ab366.bindPopup(popup_9cd77203335205e1d8bbab59239e0a60)
+        ;
+
+        
+    
+    
+            circle_marker_e62435ea48e8cc4564f4c2dd685ab366.bindTooltip(
+                `<div>
+                     玄武开放大学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70a0a7897b43d0a7706384ce95e4bbc4 = L.circleMarker(
+                [32.074621, 118.768319],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_1919f9d0eab8eba2a89eb1de925ddea4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f301426d9400ca880ac03d02df28ceb8 = $(`<div id="html_f301426d9400ca880ac03d02df28ceb8" style="width: 100.0%; height: 100.0%;"><b>南京工业大学(虹桥校区)</b><br>中山北路200号(虹桥地铁站3号口步行380米)<br>区划: 鼓楼区</div>`)[0];
+                popup_1919f9d0eab8eba2a89eb1de925ddea4.setContent(html_f301426d9400ca880ac03d02df28ceb8);
+            
+        
+
+        circle_marker_70a0a7897b43d0a7706384ce95e4bbc4.bindPopup(popup_1919f9d0eab8eba2a89eb1de925ddea4)
+        ;
+
+        
+    
+    
+            circle_marker_70a0a7897b43d0a7706384ce95e4bbc4.bindTooltip(
+                `<div>
+                     南京工业大学(虹桥校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9e7eab7afc87b3eb94ddc407e74a5d44 = L.circleMarker(
+                [32.055884, 118.779516],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_bdfb816ab9bf59178a51270a846b375f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c111c2bdff322db18d3985997014f50a = $(`<div id="html_c111c2bdff322db18d3985997014f50a" style="width: 100.0%; height: 100.0%;"><b>南京大学鼓楼校区老年大学</b><br>汉口路22号南京大学鼓楼校区<br>区划: 鼓楼区</div>`)[0];
+                popup_bdfb816ab9bf59178a51270a846b375f.setContent(html_c111c2bdff322db18d3985997014f50a);
+            
+        
+
+        circle_marker_9e7eab7afc87b3eb94ddc407e74a5d44.bindPopup(popup_bdfb816ab9bf59178a51270a846b375f)
+        ;
+
+        
+    
+    
+            circle_marker_9e7eab7afc87b3eb94ddc407e74a5d44.bindTooltip(
+                `<div>
+                     南京大学鼓楼校区老年大学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d230e9ec7be391edc006ea3a55e03596 = L.circleMarker(
+                [32.035022, 118.820282],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_01fcd8a362fb6f872306527d2e24356c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_308c10ef83a2327edd21770f2eb4eb4d = $(`<div id="html_308c10ef83a2327edd21770f2eb4eb4d" style="width: 100.0%; height: 100.0%;"><b>南京航空航天大学(明故宫校区)</b><br>御道街29号<br>区划: 秦淮区</div>`)[0];
+                popup_01fcd8a362fb6f872306527d2e24356c.setContent(html_308c10ef83a2327edd21770f2eb4eb4d);
+            
+        
+
+        circle_marker_d230e9ec7be391edc006ea3a55e03596.bindPopup(popup_01fcd8a362fb6f872306527d2e24356c)
+        ;
+
+        
+    
+    
+            circle_marker_d230e9ec7be391edc006ea3a55e03596.bindTooltip(
+                `<div>
+                     南京航空航天大学(明故宫校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8992adf235c106c929ad46cae12a5252 = L.circleMarker(
+                [32.055706, 118.759579],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_02f58d9e5497dc0bc04cc999d38aa008 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f74571f34f0821c1d07c0fcdb63c17a1 = $(`<div id="html_f74571f34f0821c1d07c0fcdb63c17a1" style="width: 100.0%; height: 100.0%;"><b>河海大学(西康路校区)</b><br>西康路1号<br>区划: 鼓楼区</div>`)[0];
+                popup_02f58d9e5497dc0bc04cc999d38aa008.setContent(html_f74571f34f0821c1d07c0fcdb63c17a1);
+            
+        
+
+        circle_marker_8992adf235c106c929ad46cae12a5252.bindPopup(popup_02f58d9e5497dc0bc04cc999d38aa008)
+        ;
+
+        
+    
+    
+            circle_marker_8992adf235c106c929ad46cae12a5252.bindTooltip(
+                `<div>
+                     河海大学(西康路校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_076fbd038acf5262d2246fa4cceda6d6 = L.circleMarker(
+                [32.080728, 118.77037],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_7599c97aae79d4537c6844b4ea400ec0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_866f7e3928c951337cd091627ebe3280 = $(`<div id="html_866f7e3928c951337cd091627ebe3280" style="width: 100.0%; height: 100.0%;"><b>南京邮电大学(三牌楼校区)</b><br>新模范马路66号(近中山北路)<br>区划: 鼓楼区</div>`)[0];
+                popup_7599c97aae79d4537c6844b4ea400ec0.setContent(html_866f7e3928c951337cd091627ebe3280);
+            
+        
+
+        circle_marker_076fbd038acf5262d2246fa4cceda6d6.bindPopup(popup_7599c97aae79d4537c6844b4ea400ec0)
+        ;
+
+        
+    
+    
+            circle_marker_076fbd038acf5262d2246fa4cceda6d6.bindTooltip(
+                `<div>
+                     南京邮电大学(三牌楼校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55eff8c5105bab0d0d22a2b004f14da0 = L.circleMarker(
+                [32.044375, 118.787637],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_bacf759c84a749d1be48d8b880c887ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c5ee431760a3fdf0c3fe55baf997171 = $(`<div id="html_9c5ee431760a3fdf0c3fe55baf997171" style="width: 100.0%; height: 100.0%;"><b>南京群艺文化老年大学</b><br>南京市文化馆(长江路)<br>区划: 玄武区</div>`)[0];
+                popup_bacf759c84a749d1be48d8b880c887ea.setContent(html_9c5ee431760a3fdf0c3fe55baf997171);
+            
+        
+
+        circle_marker_55eff8c5105bab0d0d22a2b004f14da0.bindPopup(popup_bacf759c84a749d1be48d8b880c887ea)
+        ;
+
+        
+    
+    
+            circle_marker_55eff8c5105bab0d0d22a2b004f14da0.bindTooltip(
+                `<div>
+                     南京群艺文化老年大学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bbe58f86e0e420837261c30b85b3cee4 = L.circleMarker(
+                [32.044082, 118.766993],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_aea47a4e940b976f8d5674a30af9dfe8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3cc02d8eaa42dbc159bef0347404c5be = $(`<div id="html_3cc02d8eaa42dbc159bef0347404c5be" style="width: 100.0%; height: 100.0%;"><b>南京中医药大学汉中门校区</b><br>汉中路282号(汉中门地铁站1号口步行100米)<br>区划: 鼓楼区</div>`)[0];
+                popup_aea47a4e940b976f8d5674a30af9dfe8.setContent(html_3cc02d8eaa42dbc159bef0347404c5be);
+            
+        
+
+        circle_marker_bbe58f86e0e420837261c30b85b3cee4.bindPopup(popup_aea47a4e940b976f8d5674a30af9dfe8)
+        ;
+
+        
+    
+    
+            circle_marker_bbe58f86e0e420837261c30b85b3cee4.bindTooltip(
+                `<div>
+                     南京中医药大学汉中门校区
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3508919c82a27381980e9ccefa81cf43 = L.circleMarker(
+                [32.083552, 118.825268],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_086fdf95305325a6d105ae8bf3481826 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9d39183e78c0afbec37d63ce772e0ba5 = $(`<div id="html_9d39183e78c0afbec37d63ce772e0ba5" style="width: 100.0%; height: 100.0%;"><b>南京警察学院(花园路校区)</b><br>玄武湖街道花园路11号<br>区划: 玄武区</div>`)[0];
+                popup_086fdf95305325a6d105ae8bf3481826.setContent(html_9d39183e78c0afbec37d63ce772e0ba5);
+            
+        
+
+        circle_marker_3508919c82a27381980e9ccefa81cf43.bindPopup(popup_086fdf95305325a6d105ae8bf3481826)
+        ;
+
+        
+    
+    
+            circle_marker_3508919c82a27381980e9ccefa81cf43.bindTooltip(
+                `<div>
+                     南京警察学院(花园路校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4f0d35a2b43604b69ca98254c3ea5f2f = L.circleMarker(
+                [32.075925, 118.811227],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_33da72b4c6a6c382afa1f06591b359ef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c9281c33075a8fa020e8fe2974edd60 = $(`<div id="html_0c9281c33075a8fa020e8fe2974edd60" style="width: 100.0%; height: 100.0%;"><b>南京林业大学国际教育学院</b><br>龙蟠路159号南京林业大学(新庄校区)<br>区划: 玄武区</div>`)[0];
+                popup_33da72b4c6a6c382afa1f06591b359ef.setContent(html_0c9281c33075a8fa020e8fe2974edd60);
+            
+        
+
+        circle_marker_4f0d35a2b43604b69ca98254c3ea5f2f.bindPopup(popup_33da72b4c6a6c382afa1f06591b359ef)
+        ;
+
+        
+    
+    
+            circle_marker_4f0d35a2b43604b69ca98254c3ea5f2f.bindTooltip(
+                `<div>
+                     南京林业大学国际教育学院
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da878ca32ac50e9bddde206d151cb217 = L.circleMarker(
+                [32.038978, 118.788606],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_ca307ad34f0c13f39a2ceb4cea7e0d09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_622c3430fb64bdbb0b634ca590d6d23f = $(`<div id="html_622c3430fb64bdbb0b634ca590d6d23f" style="width: 100.0%; height: 100.0%;"><b>南京开放大学(新街口校区)</b><br>游府西街46号<br>区划: 秦淮区</div>`)[0];
+                popup_ca307ad34f0c13f39a2ceb4cea7e0d09.setContent(html_622c3430fb64bdbb0b634ca590d6d23f);
+            
+        
+
+        circle_marker_da878ca32ac50e9bddde206d151cb217.bindPopup(popup_ca307ad34f0c13f39a2ceb4cea7e0d09)
+        ;
+
+        
+    
+    
+            circle_marker_da878ca32ac50e9bddde206d151cb217.bindTooltip(
+                `<div>
+                     南京开放大学(新街口校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_130721c09883890814852da39d5bddc8 = L.circleMarker(
+                [32.086233, 118.76154],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_4a96754082ef52dbd9d0bae5a58109f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ce8a0b7b81cee990d2fc1e95f0d977ba = $(`<div id="html_ce8a0b7b81cee990d2fc1e95f0d977ba" style="width: 100.0%; height: 100.0%;"><b>南京财经大学(福建路校区)</b><br>铁路北街128号<br>区划: 鼓楼区</div>`)[0];
+                popup_4a96754082ef52dbd9d0bae5a58109f9.setContent(html_ce8a0b7b81cee990d2fc1e95f0d977ba);
+            
+        
+
+        circle_marker_130721c09883890814852da39d5bddc8.bindPopup(popup_4a96754082ef52dbd9d0bae5a58109f9)
+        ;
+
+        
+    
+    
+            circle_marker_130721c09883890814852da39d5bddc8.bindTooltip(
+                `<div>
+                     南京财经大学(福建路校区)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_02bc00e1b2fbc8923f7fde2bfbd8ba4f = L.circleMarker(
+                [32.027085, 118.795382],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_9242f024f3e3f8c88db90274e38e7eca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_698803947a264ada19329cd9de6f38ab = $(`<div id="html_698803947a264ada19329cd9de6f38ab" style="width: 100.0%; height: 100.0%;"><b>金陵老年大学</b><br>白下路257号工人文化宫<br>区划: 秦淮区</div>`)[0];
+                popup_9242f024f3e3f8c88db90274e38e7eca.setContent(html_698803947a264ada19329cd9de6f38ab);
+            
+        
+
+        circle_marker_02bc00e1b2fbc8923f7fde2bfbd8ba4f.bindPopup(popup_9242f024f3e3f8c88db90274e38e7eca)
+        ;
+
+        
+    
+    
+            circle_marker_02bc00e1b2fbc8923f7fde2bfbd8ba4f.bindTooltip(
+                `<div>
+                     金陵老年大学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_93254f62fd3da733e3b90ebbf24c31dd = L.circleMarker(
+                [32.050975, 118.771325],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_ac071fb4940aa247405e30a6722b57a6);
+        
+    
+        var popup_593d41def4e3dac44cad7b2911aed558 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2eb7e0c611dccc71a80334927358817 = $(`<div id="html_c2eb7e0c611dccc71a80334927358817" style="width: 100.0%; height: 100.0%;"><b>江苏省老年大学</b><br>广州路189号民防大厦15层<br>区划: 鼓楼区</div>`)[0];
+                popup_593d41def4e3dac44cad7b2911aed558.setContent(html_c2eb7e0c611dccc71a80334927358817);
+            
+        
+
+        circle_marker_93254f62fd3da733e3b90ebbf24c31dd.bindPopup(popup_593d41def4e3dac44cad7b2911aed558)
+        ;
+
+        
+    
+    
+            circle_marker_93254f62fd3da733e3b90ebbf24c31dd.bindTooltip(
+                `<div>
+                     江苏省老年大学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

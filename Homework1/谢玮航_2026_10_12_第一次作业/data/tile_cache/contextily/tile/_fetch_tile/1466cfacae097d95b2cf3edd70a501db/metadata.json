@@ -1,0 +1,1 @@
+{"duration": 0.9479846954345703, "input_args": {"timeout": "None", "tile_url": "'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/9/208/427'", "wait": "0", "max_retries": "2", "headers": "{}"}, "time": 1791808796.1538365}
