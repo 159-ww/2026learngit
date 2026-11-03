@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<VRTDataset rasterXSize="600" rasterYSize="600">
+  <SRS>PROJCS["WGS 84 / UTM zone 51N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",123],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32651"]]</SRS>
+  <GeoTransform>278110.0,10.0,0.0,3469240.0,0.0,-10.0</GeoTransform>
+  <VRTRasterBand dataType="Float32" band="1">
+    <Description>B2</Description>
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Undefined</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">s2_ndwi_2024-01-13_winter.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SrcRect xOff="0" yOff="0" xSize="600" ySize="600" />
+      <DstRect xOff="0" yOff="0" xSize="600" ySize="600" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Float32" band="2">
+    <Description>B3</Description>
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Undefined</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">s2_ndwi_2024-01-13_winter.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SrcRect xOff="0" yOff="0" xSize="600" ySize="600" />
+      <DstRect xOff="0" yOff="0" xSize="600" ySize="600" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Float32" band="3">
+    <Description>B4</Description>
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Undefined</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">s2_ndwi_2024-01-13_winter.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SrcRect xOff="0" yOff="0" xSize="600" ySize="600" />
+      <DstRect xOff="0" yOff="0" xSize="600" ySize="600" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Float32" band="4">
+    <Description>B8</Description>
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Undefined</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">s2_ndwi_2024-01-13_winter.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SrcRect xOff="0" yOff="0" xSize="600" ySize="600" />
+      <DstRect xOff="0" yOff="0" xSize="600" ySize="600" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Float32" band="5">
+    <Description>SCL</Description>
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Undefined</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">s2_ndwi_2024-01-13_winter.tif</SourceFilename>
+      <SourceBand>5</SourceBand>
+      <SrcRect xOff="0" yOff="0" xSize="600" ySize="600" />
+      <DstRect xOff="0" yOff="0" xSize="600" ySize="600" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Float32" band="6">
+    <Description>NDWI_EE</Description>
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Undefined</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">s2_ndwi_2024-01-13_winter.tif</SourceFilename>
+      <SourceBand>6</SourceBand>
+      <SrcRect xOff="0" yOff="0" xSize="600" ySize="600" />
+      <DstRect xOff="0" yOff="0" xSize="600" ySize="600" />
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>

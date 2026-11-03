@@ -1,0 +1,75 @@
+{
+  "collection": "COPERNICUS/S2_SR_HARMONIZED",
+  "source": "European Union/ESA/Copernicus; Google Earth Engine",
+  "project_id": "ndvindvi1",
+  "index": "NDWI",
+  "formula": "(B3-B8)/(B3+B8)",
+  "crs": "EPSG:32651",
+  "transform": [
+    10,
+    0,
+    278110,
+    0,
+    -10,
+    3469240
+  ],
+  "width": 600,
+  "height": 600,
+  "area_km2": 36,
+  "nodata": -9999,
+  "reflectance_scale": 0.0001,
+  "valid_scl": [
+    4,
+    5,
+    6
+  ],
+  "bands": [
+    "B2",
+    "B3",
+    "B4",
+    "B8",
+    "SCL",
+    "NDWI_EE"
+  ],
+  "roi_description": "金鸡湖及周边6×6km矩形，不是官方湖岸边界",
+  "scenes": [
+    {
+      "season": "winter",
+      "label": "冬季",
+      "date": "2024-01-13",
+      "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240113T024051_20240113T024046_T51RTQ",
+      "roi_scl_valid_fraction_20m": 0.9996,
+      "tile_cloud_pct": 0.0058,
+      "file": "s2_ndwi_2024-01-13_winter.tif"
+    },
+    {
+      "season": "spring",
+      "label": "春季",
+      "date": "2024-05-17",
+      "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240517T023529_20240517T024223_T51RTQ",
+      "roi_scl_valid_fraction_20m": 0.9941111111111111,
+      "tile_cloud_pct": 6.355437,
+      "file": "s2_ndwi_2024-05-17_spring.tif"
+    },
+    {
+      "season": "summer",
+      "label": "夏季",
+      "date": "2024-07-31",
+      "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240731T023551_20240731T024818_T51RTQ",
+      "roi_scl_valid_fraction_20m": 0.9900111111111111,
+      "tile_cloud_pct": 1.886961,
+      "file": "s2_ndwi_2024-07-31_summer.tif"
+    },
+    {
+      "season": "autumn",
+      "label": "秋季",
+      "date": "2024-10-29",
+      "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20241029T023821_20241029T023824_T51RTQ",
+      "roi_scl_valid_fraction_20m": 0.9999777777777777,
+      "tile_cloud_pct": 12.849084,
+      "file": "s2_ndwi_2024-10-29_autumn.tif"
+    }
+  ],
+  "download_status": "complete",
+  "download_method": "fresh Google Earth Engine GeoTIFF exports"
+}
