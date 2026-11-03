@@ -1,0 +1,38 @@
+[
+  {
+    "file": "s2_ndwi_2024-01-13_winter.tif",
+    "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240113T024051_20240113T024046_T51RTQ",
+    "downloaded_at_utc": "2026-11-02T15:59:32.833608+00:00",
+    "server_response_date": "Mon, 02 Nov 2026 15:59:25 GMT",
+    "bytes": 4261712,
+    "sha256": "6fd739a0273c0efd74cd1ea6e67a83a6430eb5f8e56d2773cc698e67e5f49dbe",
+    "method": "fresh HTTP GET from Google Earth Engine"
+  },
+  {
+    "file": "s2_ndwi_2024-05-17_spring.tif",
+    "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240517T023529_20240517T024223_T51RTQ",
+    "downloaded_at_utc": "2026-11-02T15:59:17.519041+00:00",
+    "server_response_date": "Mon, 02 Nov 2026 15:59:19 GMT",
+    "bytes": 4558033,
+    "sha256": "7d6e7f0563ecde7c22921762c83c69324e33c1e5b1ba03d1ae7ef0661cca1b21",
+    "method": "fresh HTTP GET from Google Earth Engine"
+  },
+  {
+    "file": "s2_ndwi_2024-07-31_summer.tif",
+    "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240731T023551_20240731T024818_T51RTQ",
+    "downloaded_at_utc": "2026-11-02T15:59:20.666864+00:00",
+    "server_response_date": "Mon, 02 Nov 2026 15:59:20 GMT",
+    "bytes": 4555032,
+    "sha256": "12cc523495eb372eefd4ea74bae56268ca970d04e97ad26fcbb9daf39ba4a47b",
+    "method": "fresh HTTP GET from Google Earth Engine"
+  },
+  {
+    "file": "s2_ndwi_2024-10-29_autumn.tif",
+    "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20241029T023821_20241029T023824_T51RTQ",
+    "downloaded_at_utc": "2026-11-02T15:59:17.396858+00:00",
+    "server_response_date": "Mon, 02 Nov 2026 15:59:18 GMT",
+    "bytes": 4254270,
+    "sha256": "7095ec28a24dab41e99e3cca074b516a8990738052665233f75031a258c17d9f",
+    "method": "fresh HTTP GET from Google Earth Engine"
+  }
+]
