@@ -47,8 +47,8 @@ B8为零而B3大于零时，NDWI会达到+1。本次保留可复现的原始计�
 - 双击 `outputs/金鸡湖NDWI可视化.html`，离线切换四期真彩色和NDWI，并查看空间分布、差值和统计。
 - `outputs/ndwi_four_seasons.png` 可直接用于报告；`ndwi_means.png` 为真实日期间隔的均值曲线。
 - 原始导出TIF没有NoData标签和波段名时，建议在GIS中打开 `data` 内同名VRT，它补充元数据而不改变原始像元。
-- 双击作业根目录的 `运行本地分析.cmd`，或用VS Code打开整个“金鸡湖NDWI作业”文件夹后按Ctrl+Shift+B。
-- GEE脚本在网页编辑器运行，本地Python主程序在随包环境运行，两者的运行位置不同。
+- GEE 脚本 `gee_jinjihu_ndwi.js` 在网页编辑器（https://code.earthengine.google.com/）中运行。
+- 本地 Python 脚本 `jinjihu_ndwi.py` 与 `download_from_manifest.py` 在本地 Python 环境运行。
 
 ## 数据来源与指标定义
 
