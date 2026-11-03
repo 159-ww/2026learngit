@@ -1,0 +1,19 @@
+{
+  "source_file": "taihu_2025_10_s2_source.tif",
+  "ndti_file": "taihu_2025_10_ndti.tif",
+  "crs": "EPSG:32651",
+  "pixel_size_m": [
+    10.0,
+    10.0
+  ],
+  "valid_lake_pixels": 4024318,
+  "valid_lake_area_km2": 402.4318,
+  "ndti_mean": -0.16588251292705536,
+  "ndti_std": 0.04790496826171875,
+  "ndti_min": -0.4555097222328186,
+  "ndti_median": -0.16532357037067413,
+  "ndti_max": 0.29427167773246765,
+  "clear_observation_count_min": 2,
+  "clear_observation_count_median": 6.0,
+  "clear_observation_count_max": 12
+}
