@@ -1,0 +1,92 @@
+{
+  "collection": "COPERNICUS/S2_SR_HARMONIZED",
+  "source": "European Union / ESA / Copernicus; Google Earth Engine",
+  "crs": "EPSG:32650",
+  "transform": [
+    10,
+    0,
+    669290,
+    0,
+    -10,
+    3551920
+  ],
+  "width": 500,
+  "height": 500,
+  "area_km2": 25,
+  "bands": [
+    "B2",
+    "B3",
+    "B4",
+    "B8",
+    "SCL",
+    "NDVI_EE"
+  ],
+  "nodata": -9999,
+  "reflectance_scale": 0.0001,
+  "valid_scl": [
+    4,
+    5,
+    6
+  ],
+  "scenes": [
+    {
+      "season": "winter",
+      "label": "冬季",
+      "window": [
+        "2024-01-01",
+        "2024-03-01"
+      ],
+      "candidate_count": 6,
+      "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240210T024849_20240210T025635_T50SPA",
+      "date": "2024-02-10",
+      "tile_cloud_pct": 0.02863,
+      "roi_valid_fraction_20m": 0.999951999247047,
+      "file": "s2_2024-02-10_winter.tif"
+    },
+    {
+      "season": "spring",
+      "label": "春季",
+      "window": [
+        "2024-04-01",
+        "2024-06-01"
+      ],
+      "candidate_count": 5,
+      "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240525T024531_20240525T025343_T50SPA",
+      "date": "2024-05-25",
+      "tile_cloud_pct": 6.969383,
+      "roi_valid_fraction_20m": 0.998392006149116,
+      "file": "s2_2024-05-25_spring.tif"
+    },
+    {
+      "season": "summer",
+      "label": "夏季",
+      "window": [
+        "2024-07-01",
+        "2024-09-01"
+      ],
+      "candidate_count": 9,
+      "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20240729T024529_20240729T025302_T50SPA",
+      "date": "2024-07-29",
+      "tile_cloud_pct": 0.406253,
+      "roi_valid_fraction_20m": 0.9940159688779432,
+      "file": "s2_2024-07-29_summer.tif"
+    },
+    {
+      "season": "autumn",
+      "label": "秋季",
+      "window": [
+        "2024-10-01",
+        "2024-12-01"
+      ],
+      "candidate_count": 5,
+      "asset_id": "COPERNICUS/S2_SR_HARMONIZED/20241106T024819_20241106T025602_T50SPA",
+      "date": "2024-11-06",
+      "tile_cloud_pct": 0.004512,
+      "roi_valid_fraction_20m": 1,
+      "file": "s2_2024-11-06_autumn.tif"
+    }
+  ],
+  "download_tool": "geemap.ee_export_image",
+  "geemap_version": "0.38.9",
+  "download_status": "complete"
+}
