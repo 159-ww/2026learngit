@@ -1,0 +1,17 @@
+{
+  "study_area": "Hangzhou, Zhejiang, China",
+  "boundary_asset": "FAO/GAUL/2025/level2",
+  "boundary_filter": {
+    "GAUL1_NAME": "Zhejiang Province",
+    "GAUL2_NAME": "Hangzhou"
+  },
+  "image_asset": "COPERNICUS/S2_SR_HARMONIZED",
+  "cloud_score_asset": "GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED",
+  "start_date_inclusive": "2025-09-01",
+  "end_date_exclusive": "2025-11-01",
+  "candidate_scene_count": 67,
+  "composite": "cloud-masked median B4/B8",
+  "ndvi_formula": "(B8 - B4) / (B8 + B4)",
+  "download_scale_m": 30.0,
+  "download_crs": "EPSG:32650"
+}
