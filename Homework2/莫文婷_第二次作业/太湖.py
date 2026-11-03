@@ -30,6 +30,6 @@ m.addLayer(image, {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 3000}, 'Sentine
 m.addLayer(ndvi, {'min': -0.2, 'max': 0.8, 'palette': ['white', 'lightgreen', 'green', 'darkgreen']}, 'NDVI 指标')
 
 # 5. 导出为 HTML 网页
-out_html = "index.html"
+out_html = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
 m.to_html(out_html)
 print(f"新版网页已生成：{out_html}！双击打开看看 30 公里的效果。")

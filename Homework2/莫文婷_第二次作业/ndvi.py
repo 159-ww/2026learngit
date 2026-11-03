@@ -4,8 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 1. 设置路径
-data_dir = r"D:\A11code\空间分析作业\第三次\data"
-out_dir = r"D:\A11code\空间分析作业\第三次"
+base_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(base_dir, "data")
+out_dir = base_dir
 
 tif_files = [f for f in os.listdir(data_dir) if f.endswith('.tif')]
 print(f"找到 {len(tif_files)} 个TIF文件，准备计算NDVI...\n")
